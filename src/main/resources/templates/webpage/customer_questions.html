@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments :: head"> </head>
+<body>
+<nav th:replace="fragments :: navigation"></nav>
+
+<div class="container">
+
+    <div class="progressBar">
+        <progress value="" max="" id ="progress"> </progress>
+    </div>
+
+    <div class="question">
+        <h3 id="question">Nothing</h3>
+    </div>
+
+    <form id="scoreForm" method="post" th:attr="data-num=${num}">
+        <div id="questions-container">
+            <table class="table table-light">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">1</th>
+                    <th scope="col">2</th>
+                    <th scope="col">3</th>
+                    <th scope="col">4</th>
+                    <th scope="col">5</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row"> Quality</th>
+                    <td><input class="checkbox-quality" type="checkbox" id="quality-1" value="1" /></td>
+                    <td><input class="checkbox-quality" type="checkbox" id="quality-2" value="2" /></td>
+                    <td><input class="checkbox-quality" type="checkbox" id="quality-3" value="3" /></td>
+                    <td><input class="checkbox-quality" type="checkbox" id="quality-4" value="4" /></td>
+                    <td><input class="checkbox-quality" type="checkbox" id="quality-5" value="5" /></td>
+                </tr>
+                <tr>
+                    <th scope="row"> Importance</th>
+                    <td><input class="checkbox-importance" type="checkbox" id="importance-1" value="1" /></td>
+                    <td><input class="checkbox-importance" type="checkbox" id="importance-2" value="2" /></td>
+                    <td><input class="checkbox-importance" type="checkbox" id="importance-3" value="3" /></td>
+                    <td><input class="checkbox-importance" type="checkbox" id="importance-4" value="4" /></td>
+                    <td><input class="checkbox-importance" type="checkbox" id="importance-5" value="5" /></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-group">
+            <div id="error" class="alert alert-danger form-control" role="alert">Please tick both two checkboxes and comment (if you strongly agree or strongly disagree)</div>
+            <label for="comment"><h5>Comments (If you strongly agree or strongly Disagree)</h5></label>
+            <textarea class="form-control" name="comment" id="comment" rows="3" disabled="true"></textarea>
+        </div>
+        <button type="submit" class="btn btn-info pull-right btn-md" id="question-next">Next<i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+    </form>
+</div>
+
+<script th:src="@{/js/question_validation.js}" src="../static/js/question_validation.js"></script>
+</body>
+</html>
+
