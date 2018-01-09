@@ -1,6 +1,6 @@
 <h2>Configuration</h2>
 Before you begin, download or clone the repository and open MySQL Workbench.
-Afterwards, Please run the schema.sql script, and then the gen-acc.sql script.
+Afterwards, Please run the schema.sql script, and then the gen-acc.sql script, they are located in the database folder.
 This will supply your database with the relevant data.
 
 <h2>Login</h2>
