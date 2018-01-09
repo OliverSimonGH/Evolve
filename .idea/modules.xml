@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/evolvestuff.iml" filepath="$PROJECT_DIR$/.idea/modules/evolvestuff.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/evolvestuff_main.iml" filepath="$PROJECT_DIR$/.idea/modules/evolvestuff_main.iml" group="evolvestuff" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/evolvestuff_test.iml" filepath="$PROJECT_DIR$/.idea/modules/evolvestuff_test.iml" group="evolvestuff" />
+    </modules>
+  </component>
+</project>

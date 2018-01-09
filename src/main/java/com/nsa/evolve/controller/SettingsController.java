@@ -36,9 +36,6 @@ public class SettingsController {
     @Autowired
     private AccountService accountService;
 
-    @Autowired
-    private PDFReport pdfReport;
-
     @RequestMapping(value = "/settings", method = RequestMethod.GET)
     public String getSettingsPage(Model model, HttpSession session, @ModelAttribute("error") String error, @ModelAttribute("success") String success, @ModelAttribute("password") String password){
         Account account = (Account) session.getAttribute("account");
@@ -51,15 +48,16 @@ public class SettingsController {
         return "webpage/settings";
     }
 
-    @RequestMapping(value = "/account/updatePassword", method = RequestMethod.POST)
+    @RequestMapping(value = "/account/updatePassword", method = RequestMethod.PUT)
     public String updateAccountPassword(@ModelAttribute PasswordForm passwordForm, RedirectAttributes redirectAttributes, HttpSession session){
         Account account = (Account) session.getAttribute("account");
-        boolean result = accountService.changePassword(passwordForm.getCurrent(), passwordForm.getLatest(), account.getId());
 
         if (passwordForm.getLatest().length() < 5) {
             redirectAttributes.addFlashAttribute("password", "Enter a password that's 5 or more characters long");
             return "redirect:/settings";
         }
+
+        boolean result = accountService.changePassword(passwordForm.getCurrent(), passwordForm.getLatest(), account.getId());
 
         if (result){
             redirectAttributes.addFlashAttribute("success", "Password Updated");

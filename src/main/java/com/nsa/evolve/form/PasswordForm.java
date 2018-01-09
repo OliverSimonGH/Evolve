@@ -1,6 +1,8 @@
 package com.nsa.evolve.form;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -9,6 +11,8 @@ import javax.validation.constraints.Size;
  * Created by c1633899 on 08/12/2017.
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PasswordForm {
 
     @NotNull

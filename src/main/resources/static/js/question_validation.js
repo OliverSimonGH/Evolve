@@ -88,8 +88,6 @@ $(Document).ready(function () {
             "num": null
         };
 
-        console.log($("#scoreForm").data("num"));
-
         $.ajax({
             type: "POST",
             url: "/api/questionnaire/question",

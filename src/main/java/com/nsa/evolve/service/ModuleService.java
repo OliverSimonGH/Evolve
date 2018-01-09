@@ -14,6 +14,7 @@ public interface ModuleService {
     List<Module> findAllModulesByCompany(Integer fkCompany);
     List<ModuleJoin> findAllModules(Integer fkCompany);
     List<ModuleType> findModulesNotAdded(Integer fkCompany);
+    ModuleJoin findModuleByID(Integer id);
     int deleteModuleById(Integer id, Integer company);
     int addModule(Integer module, Integer company);
     int getModuleScore(Integer modId);

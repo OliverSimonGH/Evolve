@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class QuestionnaireController {
 
     @Autowired
@@ -20,16 +20,11 @@ public class QuestionnaireController {
     @Autowired
     private ScoreService scoreService;
 
-    //Here i make a RESTful api, this can be called through javascript by doing
-    // /api/questionnaire?id=(id of questionnaire) and it will return a list of questions
-
-    @ResponseBody
     @RequestMapping(value = "/api/questionnaire", method = RequestMethod.GET)
     public List<Question> getCustomerQuestionnaire(@RequestParam("id") Integer id){
         return questionService.findAllQuestionsByQuestionnaire(id);
     }
 
-    @ResponseBody
     @RequestMapping(value = "/api/questionnaire/question", method = RequestMethod.POST)
     public void insertScoreFromQuestion(ScoreForm scoreForm){
         scoreService.insertScoreForComment(scoreForm.getScore(), scoreForm.getComment(), scoreForm.getFkQuestion(), scoreForm.getFkModule(), scoreForm.getNum());

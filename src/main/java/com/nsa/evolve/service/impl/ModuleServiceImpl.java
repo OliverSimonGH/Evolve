@@ -35,6 +35,11 @@ public class ModuleServiceImpl implements ModuleService {
     }
 
     @Override
+    public ModuleJoin findModuleByID(Integer id) {
+        return moduleDAO.findModuleByID(id);
+    }
+
+    @Override
     public int deleteModuleById(Integer id, Integer company) {
         return moduleDAO.deleteModuleById(id, company);
     }

@@ -5,7 +5,6 @@ import com.nsa.evolve.dto.Module;
 import com.nsa.evolve.dto.ModuleJoin;
 import com.nsa.evolve.dto.ModuleType;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -49,6 +48,17 @@ public class ModuleDAOImpl implements ModuleDAO {
                 (rs, rowNum) -> new ModuleType(
                         rs.getInt("id"),
                         rs.getString("name")
+                ));
+    }
+
+    @Override
+    public ModuleJoin findModuleByID(Integer id) {
+        return jdbcTemplate.queryForObject("SELECT mt.id, mt.name, m.id FROM module m JOIN moduletype mt ON mt.id = m.fk_module WHERE m.id = ?",
+                new Object[]{id},
+                (rs, rowNum) -> new ModuleJoin(
+                        rs.getInt("mt.id"),
+                        rs.getString("mt.name"),
+                        rs.getInt("m.id")
                 ));
     }
 
