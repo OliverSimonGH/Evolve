@@ -1,4 +1,4 @@
-<h2>Configuration</h1>
+<h2>Configuration</h2>
 Before you begin, download or clone the repository and open MySQL Workbench.
 Afterwards, Please run the schema.sql script, and then the gen-acc.sql script.
 This will supply your database with the relevant data.
@@ -11,15 +11,21 @@ different dashbaords, in this case, we will only be using the Customer Account
 The url to the login page of the website is: http://localhost:8080/login
 
 Customer Account
+
 Email - customer@gmail.com
+
 Password - 123
 
 Company Account
+
 Email - company@gmail.com
+
 Password - 123
 
 Assessor Account
+
 Email - assessor@gmail.com
+
 Password - 123
 
 <h2>Selecting a Questionnaire</h2>
@@ -37,6 +43,8 @@ then underneath, you will see the question you're being asked, and beneath that,
 Keep note that 2 checkboxes must ticked from 1-5, and if you do tick a checkbox on either 1 or 5 then you will have to comment on why you gave them such a high or low rating.
 
 If you do not follow the rules above, then you will not be able to proceed to the next question and will be prompted to answer correctly.
+
+When you have ticked 2 checkboxes and filled in a comment (or not), then you will be able to proceed to the next question, this can be done by clicking the "Next" button at the bottom right of the webpage.
 
 When you finish a questionnaire, you will be redirected to your dashboard where you will be able to logout.
 
