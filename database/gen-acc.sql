@@ -1,15 +1,15 @@
-INSERT INTO account_type (id, type) VALUES (1, "Company"), (2, "Customer"), (3, "Assessor");
+USE EVOLVE;INSERT INTO account_type (id, type) VALUES (1, "Company"), (2, "Customer"), (3, "Assessor");
 INSERT INTO people_type (id, type) VALUES (1, "Client"), (2, "Employee"), (3, "Manager");
 
 INSERT INTO account (id, email, password, fk_type) VALUES (1, "company@gmail.com", "123", 1);
 INSERT INTO account (id, email, password, fk_type) VALUES (2, "customer@gmail.com", "123", 2);
 INSERT INTO account (id, email, password, fk_type) VALUES (3, "assessor@gmail.com", "123", 3);
 
-INSERT INTO moduleType(id, name) VALUES (1, "Clients");
-INSERT INTO moduleType(id, name) VALUES (2, "People");
-INSERT INTO moduleType(id, name) VALUES (3, "Value");
-INSERT INTO moduleType(id, name) VALUES (4, "FM Excellence");
-INSERT INTO moduleType(id, name) VALUES (5, "FM Standards");
+INSERT INTO moduletype(id, name) VALUES (1, "Clients");
+INSERT INTO moduletype(id, name) VALUES (2, "People");
+INSERT INTO moduletype(id, name) VALUES (3, "Value");
+INSERT INTO moduletype(id, name) VALUES (4, "FM Excellence");
+INSERT INTO moduletype(id, name) VALUES (5, "FM Standards");
 
 INSERT INTO assessor(id, name, fk_account) values (1, "bob", 3);
 INSERT INTO company(id, name, fk_assessor, fk_account) VALUES (1, "Simon Inc", 1, 1);
