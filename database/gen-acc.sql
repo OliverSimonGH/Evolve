@@ -1,4 +1,4 @@
-USE EVOLVE;INSERT INTO account_type (id, type) VALUES (1, "Company"), (2, "Customer"), (3, "Assessor");
+USE evolve;INSERT INTO account_type (id, type) VALUES (1, "Company"), (2, "Customer"), (3, "Assessor");
 INSERT INTO people_type (id, type) VALUES (1, "Client"), (2, "Employee"), (3, "Manager");
 
 INSERT INTO account (id, email, password, fk_type) VALUES (1, "company@gmail.com", "123", 1);
