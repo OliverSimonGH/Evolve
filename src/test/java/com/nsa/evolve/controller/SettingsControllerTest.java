@@ -18,7 +18,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.io.IOException;
 import java.util.Arrays;
 
-import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
