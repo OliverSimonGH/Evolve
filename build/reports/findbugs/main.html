@@ -1,0 +1,717 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>FindBugs Report</title>
+<style type="text/css">
+		.tablerow0 {
+			background: #EEEEEE;
+		}
+
+		.tablerow1 {
+			background: white;
+		}
+
+		.detailrow0 {
+			background: #EEEEEE;
+		}
+
+		.detailrow1 {
+			background: white;
+		}
+
+		.tableheader {
+			background: #b9b9fe;
+			font-size: larger;
+		}
+
+		.tablerow0:hover, .tablerow1:hover {
+			background: #aaffaa;
+		}
+
+		.priority-1 {
+		    color: red;
+		    font-weight: bold;
+		}
+		.priority-2 {
+		    color: orange;
+		    font-weight: bold;
+		}
+		.priority-3 {
+		    color: green;
+		    font-weight: bold;
+		}
+		.priority-4 {
+		    color: blue;
+		    font-weight: bold;
+		}
+		</style>
+<script type="text/javascript">
+			function toggleRow(elid) {
+				if (document.getElementById) {
+					element = document.getElementById(elid);
+					if (element) {
+						if (element.style.display == 'none') {
+							element.style.display = 'block';
+							//window.status = 'Toggle on!';
+						} else {
+							element.style.display = 'none';
+							//window.status = 'Toggle off!';
+						}
+					}
+				}
+			}
+		</script>
+</head>
+<body>
+<h1>
+<a href="http://findbugs.sourceforge.net">FindBugs</a> Report</h1>
+<h2>Project Information</h2>
+<p>Project: 
+		</p>
+<p>FindBugs version: 3.0.1</p>
+<p>Code analyzed:</p>
+<ul>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\classes\ShortCompanyData.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\controller\AccountController.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\controller\AssessorController.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\controller\CompanyController.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\controller\DashboardController.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\controller\QuestionnaireController.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\controller\SettingsController.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\AccountDAO.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\AssessmentDAO.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\AssessorDAO.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\CompanyDAO.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\CustomerDAO.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\impl\AccountDAOImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\impl\AssessmentDAOImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\impl\AssessorDAOImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\impl\CompanyDAOImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\impl\CustomerDAOImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\impl\ModuleDAOImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\impl\ModuleTypeDAOImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\impl\PeopleDAOImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\impl\PeopleTypeDAOImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\impl\QuestionDAOImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\impl\QuestionnaireDAOImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\impl\ResultDAOImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\impl\ScoreDAOImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\ModuleDAO.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\ModuleTypeDAO.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\PeopleDAO.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\PeopleTypeDAO.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\QuestionDAO.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\QuestionnaireDAO.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\ResultDAO.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dao\ScoreDAO.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dto\Account.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dto\Assessment.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dto\Assessor.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dto\Company.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dto\Module.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dto\ModuleJoin.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dto\ModuleReturnData.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dto\ModuleType.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dto\People.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dto\PeopleType.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dto\Question.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dto\Questionnaire.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dto\Result.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dto\RMAJoin.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\dto\Score.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\EvolveApplication.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\form\AssessmentForm.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\form\CustomerForm.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\form\LoginForm.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\form\ModuleForm.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\form\PasswordForm.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\form\PDFForm.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\form\QuestionDeleteForm.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\form\QuestionForm.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\form\ScoreForm.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\form\SignupForm.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\AccountService.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\AssessmentService.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\AssessorService.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\CompanyService.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\impl\AccountServiceImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\impl\AssessmentServiceImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\impl\AssessorServiceImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\impl\CompanyServiceImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\impl\MailServiceImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\impl\ModuleServiceImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\impl\ModuleTypeServiceImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\impl\PDFReportImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\impl\PeopleServiceImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\impl\PeopleTypeServiceImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\impl\QuestionnaireServiceImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\impl\QuestionServiceImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\impl\ResultServiceImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\impl\ScoreServiceImpl.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\MailService.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\ModuleService.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\ModuleTypeService.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\PDFReport.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\PeopleService.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\PeopleTypeService.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\QuestionnaireService.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\QuestionService.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\ResultService.class</li>
+<li>C:\Users\c1633899\Documents\Year Two\Semester One\CM6213 Commercial Applications with Java\Assessment\evolvestuff\build\classes\main\com\nsa\evolve\service\ScoreService.class</li>
+</ul>
+<p>
+<br/>
+<br/>
+</p>
+<h2>Metrics</h2>
+<p>1798 lines of code analyzed,
+	in 87 classes, 
+	in 9 packages.</p>
+<table width="500" cellpadding="5" cellspacing="2">
+<tr class="tableheader">
+<th align="left">Metric</th>
+<th align="right">Total</th>
+<th align="right">Density*</th>
+</tr>
+<tr class="tablerow0">
+<td>High Priority Warnings</td>
+<td align="right">6</td>
+<td align="right">3.34</td>
+</tr>
+<tr class="tablerow1">
+<td>Medium Priority Warnings</td>
+<td align="right">15</td>
+<td align="right">8.34</td>
+</tr>
+<tr class="$totalClass">
+<td>
+<b>Total Warnings</b>
+</td>
+<td align="right">
+<b>21</b>
+</td>
+<td align="right">
+<b>11.68</b>
+</td>
+</tr>
+</table>
+<p>
+<i>(* Defects per Thousand lines of non-commenting source statements)</i>
+</p>
+<p>
+<br/>
+<br/>
+</p>
+<h2>Contents</h2>
+<ul>
+<li>
+<a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+</li>
+<li>
+<a href="#Warnings_I18N">Internationalization Warnings</a>
+</li>
+<li>
+<a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+</li>
+<li>
+<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
+</li>
+<li>
+<a href="#Warnings_STYLE">Dodgy code Warnings</a>
+</li>
+<li>
+<a href="#Details">Details</a>
+</li>
+</ul>
+<h1>Summary</h1>
+<table width="500" cellpadding="5" cellspacing="2">
+<tr class="tableheader">
+<th align="left">Warning Type</th>
+<th align="right">Number</th>
+</tr>
+<tr class="tablerow0">
+<td>
+<a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+</td>
+<td align="right">7</td>
+</tr>
+<tr class="tablerow1">
+<td>
+<a href="#Warnings_I18N">Internationalization Warnings</a>
+</td>
+<td align="right">1</td>
+</tr>
+<tr class="tablerow0">
+<td>
+<a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+</td>
+<td align="right">4</td>
+</tr>
+<tr class="tablerow1">
+<td>
+<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
+</td>
+<td align="right">3</td>
+</tr>
+<tr class="tablerow0">
+<td>
+<a href="#Warnings_STYLE">Dodgy code Warnings</a>
+</td>
+<td align="right">6</td>
+</tr>
+<tr class="tablerow1">
+<td>
+<b>Total</b>
+</td>
+<td align="right">
+<b>21</b>
+</td>
+</tr>
+</table>
+<h1>Warnings</h1>
+<p>Click on a warning row to see full context information.</p>
+<h2>
+<a name="Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66040');">
+<td>
+<span class="priority-1">J2EE</span>
+</td>
+<td>Store of non serializable com.nsa.evolve.dto.Account into HttpSession in com.nsa.evolve.controller.AccountController.postloginPage(LoginForm, HttpSession, RedirectAttributes)</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66040" style="display: none;">
+<a href="#J2EE_STORE_OF_NON_SERIALIZABLE_OBJECT_INTO_SESSION">Bug type J2EE_STORE_OF_NON_SERIALIZABLE_OBJECT_INTO_SESSION (click for details)</a>
+<br/>In class com.nsa.evolve.controller.AccountController<br/>In method com.nsa.evolve.controller.AccountController.postloginPage(LoginForm, HttpSession, RedirectAttributes)<br/>Actual type com.nsa.evolve.dto.Account<br/>At AccountController.java:[line 67]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66107');">
+<td>
+<span class="priority-1">J2EE</span>
+</td>
+<td>Store of non serializable com.nsa.evolve.dto.Assessor into HttpSession in com.nsa.evolve.controller.AccountController.postloginPage(LoginForm, HttpSession, RedirectAttributes)</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66107" style="display: none;">
+<a href="#J2EE_STORE_OF_NON_SERIALIZABLE_OBJECT_INTO_SESSION">Bug type J2EE_STORE_OF_NON_SERIALIZABLE_OBJECT_INTO_SESSION (click for details)</a>
+<br/>In class com.nsa.evolve.controller.AccountController<br/>In method com.nsa.evolve.controller.AccountController.postloginPage(LoginForm, HttpSession, RedirectAttributes)<br/>Actual type com.nsa.evolve.dto.Assessor<br/>At AccountController.java:[line 81]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66174');">
+<td>
+<span class="priority-1">J2EE</span>
+</td>
+<td>Store of non serializable com.nsa.evolve.dto.Company into HttpSession in com.nsa.evolve.controller.AccountController.postloginPage(LoginForm, HttpSession, RedirectAttributes)</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66174" style="display: none;">
+<a href="#J2EE_STORE_OF_NON_SERIALIZABLE_OBJECT_INTO_SESSION">Bug type J2EE_STORE_OF_NON_SERIALIZABLE_OBJECT_INTO_SESSION (click for details)</a>
+<br/>In class com.nsa.evolve.controller.AccountController<br/>In method com.nsa.evolve.controller.AccountController.postloginPage(LoginForm, HttpSession, RedirectAttributes)<br/>Actual type com.nsa.evolve.dto.Company<br/>At AccountController.java:[line 71]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66241');">
+<td>
+<span class="priority-1">J2EE</span>
+</td>
+<td>Store of non serializable com.nsa.evolve.dto.People into HttpSession in com.nsa.evolve.controller.AccountController.postloginPage(LoginForm, HttpSession, RedirectAttributes)</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66241" style="display: none;">
+<a href="#J2EE_STORE_OF_NON_SERIALIZABLE_OBJECT_INTO_SESSION">Bug type J2EE_STORE_OF_NON_SERIALIZABLE_OBJECT_INTO_SESSION (click for details)</a>
+<br/>In class com.nsa.evolve.controller.AccountController<br/>In method com.nsa.evolve.controller.AccountController.postloginPage(LoginForm, HttpSession, RedirectAttributes)<br/>Actual type com.nsa.evolve.dto.People<br/>At AccountController.java:[line 76]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66524');">
+<td>
+<span class="priority-1">J2EE</span>
+</td>
+<td>Store of non serializable com.nsa.evolve.form.PDFForm into HttpSession in com.nsa.evolve.controller.CompanyController.getImage(PDFForm, HttpSession)</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66524" style="display: none;">
+<a href="#J2EE_STORE_OF_NON_SERIALIZABLE_OBJECT_INTO_SESSION">Bug type J2EE_STORE_OF_NON_SERIALIZABLE_OBJECT_INTO_SESSION (click for details)</a>
+<br/>In class com.nsa.evolve.controller.CompanyController<br/>In method com.nsa.evolve.controller.CompanyController.getImage(PDFForm, HttpSession)<br/>Actual type com.nsa.evolve.form.PDFForm<br/>At CompanyController.java:[line 140]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66884');">
+<td>
+<span class="priority-2">NP</span>
+</td>
+<td>com.nsa.evolve.dao.impl.CompanyDAOImpl.checkModuleTaken(Long, Long) has Boolean return type and returns explicit null</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66884" style="display: none;">
+<a href="#NP_BOOLEAN_RETURN_NULL">Bug type NP_BOOLEAN_RETURN_NULL (click for details)</a>
+<br/>In class com.nsa.evolve.dao.impl.CompanyDAOImpl<br/>In method com.nsa.evolve.dao.impl.CompanyDAOImpl.checkModuleTaken(Long, Long)<br/>At CompanyDAOImpl.java:[line 117]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66938');">
+<td>
+<span class="priority-2">NP</span>
+</td>
+<td>com.nsa.evolve.dao.impl.ResultDAOImpl.insertScoreIntoResult(Integer, Integer, Integer, Integer) has Boolean return type and returns explicit null</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66938" style="display: none;">
+<a href="#NP_BOOLEAN_RETURN_NULL">Bug type NP_BOOLEAN_RETURN_NULL (click for details)</a>
+<br/>In class com.nsa.evolve.dao.impl.ResultDAOImpl<br/>In method com.nsa.evolve.dao.impl.ResultDAOImpl.insertScoreIntoResult(Integer, Integer, Integer, Integer)<br/>At ResultDAOImpl.java:[line 37]</p>
+</td>
+</tr>
+</table>
+<h2>
+<a name="Warnings_I18N">Internationalization Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67285');">
+<td>
+<span class="priority-1">Dm</span>
+</td>
+<td>Found reliance on default encoding in com.nsa.evolve.service.impl.PDFReportImpl.createReport(PDFForm): String.getBytes()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67285" style="display: none;">
+<a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
+<br/>In class com.nsa.evolve.service.impl.PDFReportImpl<br/>In method com.nsa.evolve.service.impl.PDFReportImpl.createReport(PDFForm)<br/>Called method String.getBytes()<br/>At PDFReportImpl.java:[line 48]<br/>Another occurrence at PDFReportImpl.java:[line 54]<br/>Another occurrence at PDFReportImpl.java:[line 60]<br/>Another occurrence at PDFReportImpl.java:[line 66]<br/>Another occurrence at PDFReportImpl.java:[line 72]<br/>Another occurrence at PDFReportImpl.java:[line 78]</p>
+</td>
+</tr>
+</table>
+<h2>
+<a name="Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66992');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>com.nsa.evolve.dto.Assessment.getDate() may expose internal representation by returning Assessment.date</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66992" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class com.nsa.evolve.dto.Assessment<br/>In method com.nsa.evolve.dto.Assessment.getDate()<br/>Field com.nsa.evolve.dto.Assessment.date<br/>At Assessment.java:[line 18]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67060');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>new com.nsa.evolve.dto.Assessment(Integer, Date, Integer, Integer, Integer) may expose internal representation by storing an externally mutable object into Assessment.date</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67060" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class com.nsa.evolve.dto.Assessment<br/>In method new com.nsa.evolve.dto.Assessment(Integer, Date, Integer, Integer, Integer)<br/>Field com.nsa.evolve.dto.Assessment.date<br/>Local variable named date<br/>At Assessment.java:[line 13]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67135');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>new com.nsa.evolve.dto.Assessment(Date, Integer, Integer, Integer) may expose internal representation by storing an externally mutable object into Assessment.date</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67135" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class com.nsa.evolve.dto.Assessment<br/>In method new com.nsa.evolve.dto.Assessment(Date, Integer, Integer, Integer)<br/>Field com.nsa.evolve.dto.Assessment.date<br/>Local variable named date<br/>At Assessment.java:[line 24]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67210');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>com.nsa.evolve.dto.Assessment.setDate(Date) may expose internal representation by storing an externally mutable object into Assessment.date</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67210" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class com.nsa.evolve.dto.Assessment<br/>In method com.nsa.evolve.dto.Assessment.setDate(Date)<br/>Field com.nsa.evolve.dto.Assessment.date<br/>Local variable named date<br/>At Assessment.java:[line 12]</p>
+</td>
+</tr>
+</table>
+<h2>
+<a name="Warnings_PERFORMANCE">Performance Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66591');">
+<td>
+<span class="priority-2">UrF</span>
+</td>
+<td>Unread field: com.nsa.evolve.controller.DashboardController.companyService</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66591" style="display: none;">
+<a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
+<br/>In class com.nsa.evolve.controller.DashboardController<br/>Field com.nsa.evolve.controller.DashboardController.companyService<br/>At DashboardController.java:[line 30]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66642');">
+<td>
+<span class="priority-2">UrF</span>
+</td>
+<td>Unread field: com.nsa.evolve.controller.DashboardController.moduleTypeService</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66642" style="display: none;">
+<a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
+<br/>In class com.nsa.evolve.controller.DashboardController<br/>Field com.nsa.evolve.controller.DashboardController.moduleTypeService<br/>At DashboardController.java:[line 32]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66693');">
+<td>
+<span class="priority-2">UrF</span>
+</td>
+<td>Unread field: com.nsa.evolve.controller.DashboardController.questionService</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66693" style="display: none;">
+<a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
+<br/>In class com.nsa.evolve.controller.DashboardController<br/>Field com.nsa.evolve.controller.DashboardController.questionService<br/>At DashboardController.java:[line 31]</p>
+</td>
+</tr>
+</table>
+<h2>
+<a name="Warnings_STYLE">Dodgy code Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66308');">
+<td>
+<span class="priority-2">DLS</span>
+</td>
+<td>Dead store to dtf in com.nsa.evolve.controller.CompanyController.addAssessment(Model)</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66308" style="display: none;">
+<a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
+<br/>In class com.nsa.evolve.controller.CompanyController<br/>In method com.nsa.evolve.controller.CompanyController.addAssessment(Model)<br/>Local variable named dtf<br/>At CompanyController.java:[line 123]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66378');">
+<td>
+<span class="priority-2">DLS</span>
+</td>
+<td>Dead store to ModuleReturnData in com.nsa.evolve.controller.CompanyController.getCompanyDashboardData(Model, HttpSession)</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66378" style="display: none;">
+<a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
+<br/>In class com.nsa.evolve.controller.CompanyController<br/>In method com.nsa.evolve.controller.CompanyController.getCompanyDashboardData(Model, HttpSession)<br/>Local variable named ModuleReturnData<br/>At CompanyController.java:[line 106]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66451');">
+<td>
+<span class="priority-2">DLS</span>
+</td>
+<td>Dead store to qviScores in com.nsa.evolve.controller.CompanyController.getCompanyDashboardData(Model, HttpSession)</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66451" style="display: none;">
+<a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
+<br/>In class com.nsa.evolve.controller.CompanyController<br/>In method com.nsa.evolve.controller.CompanyController.getCompanyDashboardData(Model, HttpSession)<br/>Local variable named qviScores<br/>At CompanyController.java:[line 107]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66744');">
+<td>
+<span class="priority-2">DLS</span>
+</td>
+<td>Dead store to company in com.nsa.evolve.dao.impl.CompanyDAOImpl.checkCompanyExists(String)</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66744" style="display: none;">
+<a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
+<br/>In class com.nsa.evolve.dao.impl.CompanyDAOImpl<br/>In method com.nsa.evolve.dao.impl.CompanyDAOImpl.checkCompanyExists(String)<br/>Local variable named company<br/>At CompanyDAOImpl.java:[line 66]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66811');">
+<td>
+<span class="priority-2">DLS</span>
+</td>
+<td>Dead store to size in com.nsa.evolve.dao.impl.CompanyDAOImpl.getModuleReturnData(Long, Long)</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66811" style="display: none;">
+<a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
+<br/>In class com.nsa.evolve.dao.impl.CompanyDAOImpl<br/>In method com.nsa.evolve.dao.impl.CompanyDAOImpl.getModuleReturnData(Long, Long)<br/>Local variable named size<br/>At CompanyDAOImpl.java:[line 130]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67409');">
+<td>
+<span class="priority-2">REC</span>
+</td>
+<td>Exception is caught when Exception is not thrown in com.nsa.evolve.service.impl.PDFReportImpl.createReport(PDFForm)</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67409" style="display: none;">
+<a href="#REC_CATCH_EXCEPTION">Bug type REC_CATCH_EXCEPTION (click for details)</a>
+<br/>In class com.nsa.evolve.service.impl.PDFReportImpl<br/>In method com.nsa.evolve.service.impl.PDFReportImpl.createReport(PDFForm)<br/>At PDFReportImpl.java:[line 91]</p>
+</td>
+</tr>
+</table>
+<h1>
+<a name="Details">Details</a>
+</h1>
+<h2>
+<a name="DLS_DEAD_LOCAL_STORE">DLS_DEAD_LOCAL_STORE: Dead store to local variable</a>
+</h2>
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables.  Because FindBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+
+    
+<h2>
+<a name="DM_DEFAULT_ENCODING">DM_DEFAULT_ENCODING: Reliance on default encoding</a>
+</h2>
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion, and will assume that the default platform encoding is suitable. This will cause the application behaviour to vary between platforms. Use an alternative API and specify a charset name or Charset object explicitly.  </p>
+
+      
+<h2>
+<a name="EI_EXPOSE_REP">EI_EXPOSE_REP: May expose internal representation by returning reference to mutable object</a>
+</h2>
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+
+    
+<h2>
+<a name="EI_EXPOSE_REP2">EI_EXPOSE_REP2: May expose internal representation by incorporating reference to mutable object</a>
+</h2>
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+
+    
+<h2>
+<a name="J2EE_STORE_OF_NON_SERIALIZABLE_OBJECT_INTO_SESSION">J2EE_STORE_OF_NON_SERIALIZABLE_OBJECT_INTO_SESSION: Store of non serializable object into HttpSession</a>
+</h2>
+
+<p>
+This code seems to be storing a non-serializable object into an HttpSession.
+If this session is passivated or migrated, an error will result.
+</p>
+
+    
+<h2>
+<a name="NP_BOOLEAN_RETURN_NULL">NP_BOOLEAN_RETURN_NULL: Method with Boolean return type returns explicit null</a>
+</h2>
+       
+       <p>
+    A method that returns either Boolean.TRUE, Boolean.FALSE or null is an accident waiting to happen.
+    This method can be invoked as though it returned a value of type boolean, and
+    the compiler will insert automatic unboxing of the Boolean value. If a null value is returned,
+    this will result in a NullPointerException.
+       </p>
+       
+       
+<h2>
+<a name="REC_CATCH_EXCEPTION">REC_CATCH_EXCEPTION: Exception is caught when Exception is not thrown</a>
+</h2>
+  
+  <p>
+  This method uses a try-catch block that catches Exception objects, but Exception is not
+  thrown within the try block, and RuntimeException is not explicitly caught.  It is a common bug pattern to
+  say try { ... } catch (Exception e) { something } as a shorthand for catching a number of types of exception
+  each of whose catch blocks is identical, but this construct also accidentally catches RuntimeException as well,
+  masking potential bugs.
+  </p>
+  <p>A better approach is to either explicitly catch the specific exceptions that are thrown,
+  or to explicitly catch RuntimeException exception, rethrow it, and then catch all non-Runtime Exceptions, as shown below:</p>
+  <pre>
+  try {
+    ...
+  } catch (RuntimeException e) {
+    throw e;
+  } catch (Exception e) {
+    ... deal with all non-runtime exceptions ...
+  }</pre>
+  
+     
+<h2>
+<a name="URF_UNREAD_FIELD">URF_UNREAD_FIELD: Unread field</a>
+</h2>
+
+  <p> This field is never read.&nbsp; Consider removing it from the class.</p>
+
+    </body>
+</html>

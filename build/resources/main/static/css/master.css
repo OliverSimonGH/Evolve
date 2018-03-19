@@ -1,0 +1,750 @@
+body {
+    background-color: #f1f3fb;
+    margin: 0;
+    padding: 0;
+}
+
+
+.module-circle{
+    display: flex;
+    justify-content: center;
+    align-items: center; / text-align: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border-color:white;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden;
+    color:white;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#circle1 {
+    background-color:#17a2b8;
+}
+
+#circle1:hover {
+    text-decoration: none;
+    background-color: #60d3d6
+}
+
+#circle2 {
+    background-color:#28a745;
+}
+
+#circle2:hover {
+    text-decoration: none;
+    background-color: #28cf49
+}
+
+#circle3 {
+    background-color: #ffbd00;
+}
+
+#circle3:hover {
+    text-decoration: none;
+    background-color: #ffce55
+}
+
+#circle4 {
+    background-color:#b21f2d;
+}
+
+#circle4:hover {
+    text-decoration: none;
+    background-color: #eb2832
+}
+
+#circle5 {
+    background-color: #886edc;
+}
+
+#circle5:hover {
+    text-decoration: none;
+    background-color: #a88dff
+}
+
+.module-circle:hover {
+    background-color:#b21f2d;
+}
+
+.circle-link:active {
+      color:white;
+}
+
+.circle-link:hover {
+    color:white;
+}
+
+.navbar-inverse {
+    background-color:black;
+    color:white;
+}
+
+.navbar-brand {
+    color:white;
+    font-size:20px;
+    text-decoration: none;
+    padding-left:20px;
+    font-family: coolvetica;
+}
+
+.navbar-brand:hover {
+    text-decoration: none;
+    color:white;
+}
+
+.module-circle:hover {
+    background-color:#88FF45;
+}
+
+.circle-link {
+    color:white;
+}
+
+.circle-link:hover {
+    color:white;
+    text-decoration: none;
+}
+
+
+@media (max-width: 1250px){
+    .module-circle{
+        width: 125px;
+        height: 125px;
+    }
+
+    .module-circle h3{
+        font-size: 1rem;
+        text-align: center;
+    }
+}
+
+#questions-container td, #questions-container th {
+    text-align: center;
+}
+
+.question{
+    width: 100%;
+    height: auto;
+    padding: 20px 0px;
+}
+
+#comment{
+    resize: none;
+}
+
+#question-next i {
+    margin-left: 10px;
+}
+
+#error{
+    display: none;
+}
+
+.center {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.mod5{
+    text-align: center;
+}
+
+.qvi-container{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+/*.qvi-container h1{*/
+    /*margin-top: 10px;*/
+/*}*/
+
+.qvi-fluid{
+background-color: #e5f5fd;
+box-shadow: inset 1px 0px 8px black;
+    height: 390px;
+}
+
+.mod-container{
+    margin-bottom: 125px;
+}
+.mod-container h1{
+    margin-top: 10px;
+    font-family: coolvetica;
+}
+
+.nav-spacer{
+    margin-top: 20px;
+}
+.navbar-sub {
+    background-color:#0f1626;
+    border-radius: 7px;
+    color:white;
+    margin-left: 40px;
+}
+
+.cBox {
+    margin-left:20px;
+}
+
+#modules-table{
+    margin-top: 50px;
+    text-align: center;
+}
+
+#modules-table tbody tr:hover {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+#modules-table i {
+    margin-right: 10px;
+}
+
+#table-module-add:hover{
+    cursor: pointer;
+}
+
+.hide{
+    display: none; !important;
+}
+
+.evolve-form{
+    margin-top: 50px;
+}
+
+.table{
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.num{
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.company{
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-bottom: 50px;
+    text-align: center;
+    font-size: 50px;
+    font-family: coolvetica;
+}
+
+.grayout{
+    background-color: #484646 !important;
+    border: 3px solid black;
+    opacity: 0.4;
+}
+
+.progressBar {
+    margin:auto;
+    padding-top:40px;
+}
+
+#progress {
+    height: 20px;
+    margin: auto;
+    width: 100%;
+}
+
+/* Ahmeds dropdown */
+.fullScreenModal{
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgba(38, 38, 38, 1);
+    overflow-x: hidden;
+    transition: 0.8s;
+    padding-top: 20px;
+}
+
+.fullScreenModal a:hover{
+    color: #f1f1f1;
+}
+
+.closebtn{
+    position: absolute;
+    top: -20px;
+    right: 30px;
+    font-size: 90px !important;
+    color: #ffffff !important;
+    cursor: pointer;
+}
+
+.fullScreenModal .closebtn:hover {
+    color:  #999999;
+}
+.modalTitle{
+    display:flex;
+    justify-content: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 10px;
+}
+.modalSubtitle{
+    display:flex;
+    justify-content:center;
+}
+
+.modalSubtitle > p {
+    width: 500px;
+}
+.titleModal {
+    color: #FFFFFF;
+    font-size: 5em;
+    font-weight:100;
+    margin: 0;
+    text-align: center;
+    /*font-weight: lighter;*/
+}
+.modalSubtitle p{
+    color: #FFFFFF;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.formWrapper{
+    display: flex;
+    justify-content:center;
+}
+.formContainer{
+    width:50%;
+}
+
+#module-dropdown{
+    margin-bottom: 30px;
+}
+
+#pdf-form label{
+    color: white;
+}
+#logout-button{
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.margin-top{
+    margin-top: 20px;
+}
+
+#logout-button:hover{
+    color: red;
+}
+
+#custom-nav{
+    width: 100%;
+    height: auto;
+    color: #ffffff;
+    background-color: #0F1626;
+}
+
+#custom-nav:after{
+    content: "";
+    clear: both;
+    display: block;
+}
+
+#custom-nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 19px;
+    font-family: promesh;
+}
+
+.wrapper{
+    width: 100%;
+    width: 100%;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+}
+
+#custom-nav ul li{
+    display: inline-block;
+    position: relative;
+    list-style-type: none;
+    float: left;
+    cursor: pointer;
+}
+
+#custom-nav ul .left li:first-child{
+    font-weight: 600;
+}
+
+#custom-nav ul .left li:first-child:hover a{
+    color: #ffffff;
+}
+
+#custom-nav ul li a{
+    display: block;
+    padding: 10px 20px;
+
+}
+
+#custom-nav #logout i {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+#custom-nav i{
+    margin-right: 10px;
+}
+
+
+#custom-nav ul div li:hover > a, #custom-nav ul div li:hover > form a{
+    color: red;
+}
+
+#custom-nav ul{
+    margin: 0;
+    padding: 0;
+}
+
+#custom-nav ul li ul {
+    z-index: 3;
+    position: absolute;
+    background-color: #343a40;
+    display: none;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    border-right: 3px solid #1b1e21;
+    border-left: 3px solid #1b1e21;
+    border-bottom: 3px solid #1b1e21;
+}
+
+#custom-nav ul li:hover ul {
+    display: block;
+}
+
+#custom-nav ul li ul li{
+    display: block;
+    float: none;
+}
+
+#custom-nav ul li ul li a{
+    font-size: 14px;
+}
+
+#custom-nav ul li ul li i{
+    margin-right: 5px !important;
+    margin-left: 0px !important;
+}
+
+@media (max-width: 350px){
+    #custom-nav ul li, #custom-nav .left, #custom-nav .right{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+.right{
+    float: right !important;
+}
+
+.left{
+    float: left !important;
+}
+
+.mark tr:nth-of-type(2) th:first-child{
+    width: 30%;
+}
+
+.mark tr:nth-of-type(2) th:nth-child(2){
+    width: 70%;
+}
+
+#settings-title{
+    margin-top: 25px;
+}
+
+.show-on-hover:hover > ul.dropdown-menu {
+    display: block;
+}
+
+#assessorName{
+    text-align: center;
+    font-family: coolvetica;
+    text-decoration: underline;
+}
+
+.graph-options-holder{
+    background-color: #9b9e9ea1;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+
+#resetGraph{
+    height: 100%;
+}
+
+.btn-group {
+    height: 100%;
+    border-radius: 7px;
+}
+
+.login-container{
+    margin-top: 100px;
+}
+
+@font-face { font-family: coolvetica; src: url('/css/fonts/coolvetica rg.ttf'); }
+
+/* The side navigation menu */
+.sidenav {
+    border-radius: 5px;
+    width: 250px;
+    position: absolute;
+    z-index: 1;
+    top: 143px;
+    left: -257px;
+    background-color: #0f1626;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    box-shadow: 5px 1px 6px 1px black;
+    font-family: codeBold;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    height: 0px;
+    position: absolute;
+    top: -50px;
+    right: -7px;
+    font-size: 16px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.side-nav-icon{
+    width: 50px;
+    height: 50px;
+    margin-top: 96px;
+    background-color: #111;
+    border-radius: 4px;
+    color: #f1f1f1;
+    position: relative;
+    left: -4px;
+    box-shadow: 3px 1px 7px 0px black;
+    cursor: pointer;
+}
+
+.side-nav-item{
+    width: 200px;
+}
+
+.company-name{
+    text-align: center;
+    font-size: 59px;
+    font-family: coolvetica;
+    color: white;
+    background-color: #262627;
+    box-shadow: inset 1px 1px 18px black;
+}
+
+
+#replace-container{
+    margin-top: -142px;
+}
+
+
+.modules-spacer{
+    margin: 30px;
+}
+
+.main-container{
+padding: 0px;
+    margin-top: 100px;
+
+}
+
+.mod-pick-text{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: coolvetica;
+}
+
+.create-assessment-holder{
+    text-align: center;
+    margin-top: 100px;
+
+}
+
+.create-assessment-holder h1{
+    font-size: 23px;
+}
+.submit-holder{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mod-1-holder{
+    padding-top: 50px;
+    background-color: #f1f3fb;
+}
+
+.mod-2-holder{
+    background-color: #e5f5fd;
+    box-shadow: inset 1px 0px 8px black;
+}
+
+.mod-3-holder{
+    /*padding-top: 50px;*/
+    background-color: #f1f3fb;
+}
+
+#add-customer{
+    font-family: coolvetica;
+}
+
+.qvi-heading h1{
+    text-align: center;
+    font-family: coolvetica;
+    font-size: 50px;
+}
+
+.qvi-heading {
+    position: relative;
+    top: 35px;
+}
+
+
+.company-item{cursor: pointer}
+
+.positioner{
+margin-top: 50px;
+}
+
+.button-positioner{
+    margin-right: auto;
+    margin-left: auto;
+    width: max-content;
+}
+.title{
+    font-family: coolvetica;
+    text-align: center;
+}
+
+tr{
+    cursor: pointer;
+}
+.navbar-header{
+    margin-left: auto;
+    margin-right: auto
+}
+
+.table-question input{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.table-question tbody tr:hover input{
+    background-color: #ececf6;
+}
+
+.table-question tbody tr:hover {
+    border: 2px solid black;
+}
+
+.table-question tbody tr td:first-child input{
+    padding-left: 25px;
+}
+
+.table-question tr .question-edit:hover{
+    color: green;
+    font-weight: 600;
+}
+
+.table-question tr .question-remove:hover{
+    font-weight: 600;
+    color: red;
+}
+
+.table-question tr i{
+    margin-right: 5px;
+}
+
+.table-question td:first-child{
+    width: 70%;
+}
+
+.table-question td:nth-of-type(2){
+    width: 15%;
+}
+
+.table-question td:nth-of-type(2){
+    width: 15%;
+}
+
+.sub-nav{
+    margin-top: 25px;
+    border-top: 2px solid #2e3133;
+    width: 90% !important;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.sub-nav ul li{
+    text-align: center;
+    width: 25%;
+}
+
+.sub-nav ul li:hover a{
+    color: red !important;
+    border-bottom: 3px solid red;
+
+}
+
