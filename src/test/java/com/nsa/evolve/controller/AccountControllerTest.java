@@ -54,7 +54,7 @@ public class AccountControllerTest {
         this.mvc.perform(get("/login"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("webpage/login"))
-                .andExpect(model().attribute("title", is("Login")));
+                .andExpect(model().attribute("title", is("Logn")));
 
     }
 }
