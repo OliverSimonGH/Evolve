@@ -2,9 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6db32cc2-47fe-408d-8fa6-521d0a4ff59e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/evolvestuff_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/evolvestuff_test.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/evolvestuff-0.0.1-SNAPSHOT.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/evolvestuff-0.0.1-SNAPSHOT.jar.original" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/reports/findbugs/main.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/reports/pmd/main.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/reports/pmd/main.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/com/nsa/evolve/controller/AccountControllerTest.class" afterPath="$PROJECT_DIR$/build/classes/test/com/nsa/evolve/controller/AccountControllerTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.nsa.evolve.controller.AccountControllerTest.html" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.nsa.evolve.controller.AccountControllerTest.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.nsa.evolve.controller.QuestionnaireControllerTest.html" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.nsa.evolve.controller.QuestionnaireControllerTest.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.nsa.evolve.controller.SettingsControllerTest.html" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.nsa.evolve.controller.SettingsControllerTest.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.nsa.evolve.controller.html" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.nsa.evolve.controller.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.nsa.evolve.controller.AccountControllerTest.xml" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.nsa.evolve.controller.AccountControllerTest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.nsa.evolve.controller.QuestionnaireControllerTest.xml" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.nsa.evolve.controller.QuestionnaireControllerTest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.nsa.evolve.controller.SettingsControllerTest.xml" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.nsa.evolve.controller.SettingsControllerTest.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -154,43 +175,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-191">
-              <caret line="37" column="25" lean-forward="false" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+            <state relative-caret-position="119">
+              <caret line="57" column="30" lean-forward="false" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build/reports/pmd/main.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build/reports/findbugs/main.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="69" lean-forward="false" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AccountControllerTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AccountControllerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/nsa/evolve/controller/AccountControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="59" column="1" lean-forward="false" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
+              <caret line="59" column="1" lean-forward="true" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
               <folding>
-                <marker date="1521481489048" expanded="true" signature="1901:1979" ph="{...}" />
+                <marker date="1521542025697" expanded="true" signature="1901:1979" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -477,8 +478,8 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="3036814416512" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="1645034278" />
+        <entry key="$PROJECT_DIR$" value="3036865518479" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="3362781518" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -614,8 +615,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/nsa/evolve/controller/SettingsController.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/nsa/evolve/controller/SettingsControllerTest.java" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/test/java/com/nsa/evolve/controller/AccountControllerTest.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/test/java/com/nsa/evolve/controller/AccountControllerTest.java" />
       </list>
     </option>
   </component>
@@ -789,33 +790,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.evolvestuff [build]">
-    <configuration default="false" name="SettingsControllerTest.SettingsDashboardView" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.nsa.evolve.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="evolvestuff_test" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.nsa.evolve.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.nsa.evolve.controller.SettingsControllerTest" />
-      <option name="METHOD_NAME" value="SettingsDashboardView" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Gradle.evolvestuff [clean]">
     <configuration default="false" name="com.nsa.evolve.controller in evolvestuff_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -898,6 +873,24 @@
         <option name="taskNames">
           <list>
             <option value="bootRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="false" name="evolvestuff [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -1296,19 +1289,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.SettingsControllerTest.SettingsDashboardView" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.com.nsa.evolve.controller in evolvestuff_test" />
-      <item index="2" class="java.lang.String" itemvalue="Gradle.evolvestuff [build]" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.AccountControllerTest" />
-      <item index="4" class="java.lang.String" itemvalue="Gradle.evolvestuff [bootRun]" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.com.nsa.evolve.controller in evolvestuff_test" />
+      <item index="1" class="java.lang.String" itemvalue="Gradle.evolvestuff [build]" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.AccountControllerTest" />
+      <item index="3" class="java.lang.String" itemvalue="Gradle.evolvestuff [bootRun]" />
+      <item index="4" class="java.lang.String" itemvalue="Gradle.evolvestuff [clean]" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.AccountControllerTest" />
-        <item index="1" class="java.lang.String" itemvalue="Gradle.evolvestuff [bootRun]" />
-        <item index="2" class="java.lang.String" itemvalue="Gradle.evolvestuff [build]" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.com.nsa.evolve.controller in evolvestuff_test" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.SettingsControllerTest.SettingsDashboardView" />
+        <item index="0" class="java.lang.String" itemvalue="Gradle.evolvestuff [clean]" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.AccountControllerTest" />
+        <item index="2" class="java.lang.String" itemvalue="Gradle.evolvestuff [bootRun]" />
+        <item index="3" class="java.lang.String" itemvalue="Gradle.evolvestuff [build]" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.com.nsa.evolve.controller in evolvestuff_test" />
       </list>
     </recent_temporary>
   </component>
@@ -1327,7 +1320,7 @@
       <updated>1515323655268</updated>
       <workItem from="1515323662226" duration="26564000" />
       <workItem from="1521476264062" duration="4759000" />
-      <workItem from="1521490568317" duration="1522000" />
+      <workItem from="1521490568317" duration="2889000" />
     </task>
     <servers />
   </component>
@@ -1364,7 +1357,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33956000" />
+    <option name="totallyTimeSpent" value="35323000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1378" height="735" extended-state="0" />
@@ -1564,7 +1557,7 @@
         <state relative-caret-position="306">
           <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
           <folding>
-            <marker date="1521481489048" expanded="true" signature="1901:1979" ph="{...}" />
+            <marker date="1521542025697" expanded="true" signature="1901:1979" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1801,16 +1794,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/nsa/evolve/controller/AccountControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="59" column="1" lean-forward="false" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
-          <folding>
-            <marker date="1521481489048" expanded="true" signature="1901:1979" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/nsa/evolve/controller/QuestionnaireControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-35">
@@ -1822,7 +1805,7 @@
     <entry file="file://$PROJECT_DIR$/build/reports/pmd/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+          <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1837,9 +1820,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-191">
-          <caret line="37" column="25" lean-forward="false" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+        <state relative-caret-position="119">
+          <caret line="57" column="30" lean-forward="false" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/nsa/evolve/controller/AccountControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="59" column="1" lean-forward="true" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
+          <folding>
+            <marker date="1521542025697" expanded="true" signature="1901:1979" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
