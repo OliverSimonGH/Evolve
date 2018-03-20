@@ -26,7 +26,7 @@ repositories {
 
 findbugs{
 	ignoreFailures=true
-	findbugsTest.enabled=false
+	findbugsTest.enabled=true
 }
 
 pmd {
