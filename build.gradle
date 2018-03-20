@@ -26,12 +26,12 @@ repositories {
 
 findbugs{
 	ignoreFailures=true
-	findbugsTest.enabled=true
+	findbugsTest.enabled=false
 }
 
 pmd {
 	ignoreFailures=true
-	pmdTest.enabled=true
+	pmdTest.enabled=false
 	ruleSets = [
 			'java-basic',
 			'java-braces',
