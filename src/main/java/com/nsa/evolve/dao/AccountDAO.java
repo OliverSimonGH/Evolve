@@ -12,5 +12,6 @@ public interface AccountDAO {
     Boolean checkAccountExists(String email);
     void changePassword(String password, Integer accountId);
     Account findAccountById(Integer accountId);
+    Account findAccountByUsername(String email);
 
 }

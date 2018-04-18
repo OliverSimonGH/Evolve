@@ -16,11 +16,13 @@ public class Account {
     private Integer id;
     private String email;
     private String password;
-    private Integer fkType;
+    private String salt;
+    private List<String> roles;
 
-    public Account(String email, String password, Integer fkType) {
+    public Account(String email, String password, String salt, List<String> roles) {
         this.email = email;
         this.password = password;
-        this.fkType = fkType;
+        this.salt = salt;
+        this.roles = roles;
     }
 }

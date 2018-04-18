@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * Created by c1633899 on 24/11/2017.
@@ -21,16 +24,21 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     @Override
+    @Transactional
     public Account findAccount(String email, String password) {
-        return jdbcTemplate.queryForObject("SELECT * FROM account WHERE email = ? AND password = ?",
+        Account account = jdbcTemplate.queryForObject("SELECT * FROM account WHERE email = ? AND password = ?",
                 new Object[]{email, password},
                 (rs, rowNum) -> new Account(
                         rs.getInt("id"),
                         rs.getString("email"),
                         rs.getString("password"),
-                        rs.getInt("fk_type")
+                        rs.getString("salt"),
+                        null
                 ));
 
+        List<String> authorities = getUserRoles(account.getId());
+        account.setRoles(authorities);
+        return account;
     }
 
     @Override
@@ -47,7 +55,8 @@ public class AccountDAOImpl implements AccountDAO {
                             rs.getInt("id"),
                             rs.getString("email"),
                             rs.getString("password"),
-                            rs.getInt("fk_type")
+                            rs.getString("salt"),
+                            null
                     ));
 
             return true;
@@ -62,15 +71,42 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     @Override
+    @Transactional
     public Account findAccountById(Integer accountId) {
+        List<String> authorities = getUserRoles(accountId);
+
         return jdbcTemplate.queryForObject("SELECT * FROM account WHERE id = ?",
                 new Object[]{accountId},
                 (rs, rowNum) -> new Account(
                         rs.getInt("id"),
                         rs.getString("email"),
                         rs.getString("password"),
-                        rs.getInt("fk_type")
+                        rs.getString("salt"),
+                        authorities
                 ));
 
+    }
+
+    @Override
+    @Transactional
+    public Account findAccountByUsername(String email) {
+        Account account = jdbcTemplate.queryForObject("SELECT * FROM account WHERE email = ?",
+                new Object[]{email},
+                (rs, rowNum) -> new Account(
+                        rs.getInt("id"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getString("salt"),
+                        null
+                ));
+
+        List<String> authorities = getUserRoles(account.getId());
+        account.setRoles(authorities);
+        return account;
+    }
+
+    private List<String> getUserRoles(int id) {
+        return jdbcTemplate.queryForList("SELECT r.role FROM account a JOIN account_role ar ON a.id = ar.fk_account JOIN role r ON r.id = ar.fk_role WHERE a.id = ?",
+                new Object[]{id}, String.class);
     }
 }

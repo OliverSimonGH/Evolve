@@ -66,22 +66,22 @@ public class AccountController {
         } else {
             httpSession.setAttribute("account", account);
 
-            if (account.getFkType() == 1) {
-                Company company = companyService.findCompanyByAccount(email, password);
-                httpSession.setAttribute("login", company);
-                return "redirect:/company-dashboard";
-
-            } else if (account.getFkType() == 2) {
-                People people = peopleService.findPeopleByAccount(email, password);
-                httpSession.setAttribute("login", people);
-                return "redirect:/dashboard";
-
-            } else if (account.getFkType() == 3) {
-                Assessor assessor = assessorService.findAssessorByAccount(email, password);
-                httpSession.setAttribute("login", assessor);
-                return "redirect:/dashboardAssessor";
-
-            }
+//            if (account.getFkType() == 1) {
+//                Company company = companyService.findCompanyByAccount(email, password);
+//                httpSession.setAttribute("login", company);
+//                return "redirect:/company-dashboard";
+//
+//            } else if (account.getFkType() == 2) {
+//                People people = peopleService.findPeopleByAccount(email, password);
+//                httpSession.setAttribute("login", people);
+//                return "redirect:/dashboard";
+//
+//            } else if (account.getFkType() == 3) {
+//                Assessor assessor = assessorService.findAssessorByAccount(email, password);
+//                httpSession.setAttribute("login", assessor);
+//                return "redirect:/dashboardAssessor";
+//
+//            }
             return "redirect:/dashboard";
         }
     }
