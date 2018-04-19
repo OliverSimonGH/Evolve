@@ -1,13 +1,12 @@
 package com.nsa.evolve.service.impl;
 
-import com.nsa.evolve.classes.ShortCompanyData;
 import com.nsa.evolve.dao.AssessorDAO;
 import com.nsa.evolve.dto.Account;
 import com.nsa.evolve.dto.Assessor;
+import com.nsa.evolve.dto.ShortCompanyData;
 import com.nsa.evolve.service.AccountService;
 import com.nsa.evolve.service.AssessorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

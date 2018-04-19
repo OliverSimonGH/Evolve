@@ -82,22 +82,22 @@
 
         $("#table-question-add").on("click", function () {
             $("#add-question").show();
-        })
+        });
 
         $("#modal-close").on("click", function () {
             $("#add-question").hide();
-        })
+        });
 
         $(".question-remove").on("click", function () {
             $("#fullScreenUpdate").show();
             id = $(this).parent().data("id");
             console.log();
             $(".titleModal").html($(this).siblings("td:first-child").find(".q-question").val());
-        })
+        });
 
         $("#cancel-btn").on("click", function () {
             $("#fullScreenUpdate").hide();
-        })
+        });
 
         $('#delete-submit').on('click', function (e) {
 
@@ -118,7 +118,7 @@
 
             e.preventDefault();
 
-        })
+        });
 
         $('.table-question tr .question-edit').on('click', function () {
             $cell = $(this).siblings('td:first-child');
@@ -140,7 +140,7 @@
                 $question_input.attr("readonly", "readonly");
                 $question_input.css("color", "black");
             }
-        })
+        });
 
         $(document).keypress(function (e) {
             if (e.which == 13) {

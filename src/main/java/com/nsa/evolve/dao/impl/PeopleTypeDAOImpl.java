@@ -1,8 +1,6 @@
 package com.nsa.evolve.dao.impl;
 
-import com.nsa.evolve.dao.PeopleDAO;
 import com.nsa.evolve.dao.PeopleTypeDAO;
-import com.nsa.evolve.dto.People;
 import com.nsa.evolve.dto.PeopleType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

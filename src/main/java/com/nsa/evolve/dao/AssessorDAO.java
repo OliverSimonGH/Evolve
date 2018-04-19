@@ -1,7 +1,7 @@
 package com.nsa.evolve.dao;
 
-import com.nsa.evolve.classes.ShortCompanyData;
 import com.nsa.evolve.dto.Assessor;
+import com.nsa.evolve.dto.ShortCompanyData;
 
 import java.util.List;
 

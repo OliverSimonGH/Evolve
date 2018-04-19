@@ -1,9 +1,7 @@
 package com.nsa.evolve.service.impl;
 
 import com.itextpdf.text.*;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.pdf.*;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.nsa.evolve.form.PDFForm;
 import com.nsa.evolve.service.CompanyService;
 import com.nsa.evolve.service.PDFReport;
@@ -11,12 +9,7 @@ import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 
 /**
  * Created by c1633899 on 10/12/2017.

@@ -4,10 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,5 +24,12 @@ public class Company {
         this.id = id;
         this.name = name;
         this.fkAccount = fkAccount;
+    }
+
+    public Company(Company company) {
+        this.id = company.getId();
+        this.name = company.getName();
+        this.fkAssessor = company.getFkAssessor();
+        this.fkAccount = company.getFkAccount();
     }
 }

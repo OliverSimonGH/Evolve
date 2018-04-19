@@ -1,8 +1,7 @@
 package com.nsa.evolve.service;
 
-import com.nsa.evolve.classes.ShortCompanyData;
-import com.nsa.evolve.dto.Account;
 import com.nsa.evolve.dto.Assessor;
+import com.nsa.evolve.dto.ShortCompanyData;
 
 import java.util.List;
 

@@ -1,13 +1,12 @@
 package com.nsa.evolve.service.impl;
 
+import com.nsa.evolve.dao.PeopleDAO;
 import com.nsa.evolve.dto.Account;
 import com.nsa.evolve.dto.People;
-import com.nsa.evolve.dao.PeopleDAO;
 import com.nsa.evolve.service.AccountService;
 import com.nsa.evolve.service.MailService;
 import com.nsa.evolve.service.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
@@ -27,6 +26,11 @@ public class PeopleServiceImpl implements PeopleService {
         this.peopleDAO = peopleDAO;
         this.accountService = accountService;
         this.mailService = mailService;
+    }
+
+    @Override
+    public People findPeopleByAccount(Integer foreignKey) {
+        return peopleDAO.findPeopleByAccount(foreignKey);
     }
 
     @Override

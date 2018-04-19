@@ -17,7 +17,7 @@
             <div class="offset-1"></div>
             <div class="col-md-2" th:each="module : ${modules}">
                     <div class="module-circle" th:id="@{'circle' + ${module.id}}" th:attr="data-id=${module.id}">
-                        <a th:href="@{'/dashboard/questionnaire?q=' + ${module.id} + '&amp;f=' + ${module.fkModule}}" class="circle-link">
+                        <a th:href="@{'/customer-dashboard/questionnaire?q=' + ${module.id} + '&amp;f=' + ${module.fkModule}}" class="circle-link">
                             <h3 th:text="${module.name}"></h3>
                         </a>
                     </div>

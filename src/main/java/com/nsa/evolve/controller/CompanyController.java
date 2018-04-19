@@ -1,9 +1,9 @@
 package com.nsa.evolve.controller;
 
 import com.nsa.evolve.dto.Account;
-import com.nsa.evolve.dto.Assessor;
 import com.nsa.evolve.dto.Company;
 import com.nsa.evolve.dto.ModuleReturnData;
+import com.nsa.evolve.dto.SecurityContextCustom;
 import com.nsa.evolve.form.CustomerForm;
 import com.nsa.evolve.form.ModuleForm;
 import com.nsa.evolve.form.PDFForm;
@@ -22,13 +22,13 @@ import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
  * Created by c1633899 on 27/11/2017.
  */
 @Controller
+@RequestMapping("company-dashboard")
 public class CompanyController {
 
     private PeopleTypeService peopleTypeService;
@@ -48,77 +48,61 @@ public class CompanyController {
         this.assessmentService = assessmentService;
     }
 
-    @RequestMapping(value = "/company-dashboard/add-customer", method = RequestMethod.GET)
-    public String getCustomerForm(Model model, HttpSession session){
-        Company company = (Company) session.getAttribute("login");
-        Account account = (Account) session.getAttribute("account");
-
-        model.addAttribute("account", account);
-        model.addAttribute("login", company);
+    @RequestMapping(value = "/add-customer", method = RequestMethod.GET)
+    public String getCustomerForm(Model model){
         model.addAttribute("title", "Company Dashboard");
         model.addAttribute("types", peopleTypeService.findAllPeopleType());
         return "webpage/add-customer";
     }
 
-    @RequestMapping(value = "/company-dashboard/modules", method = RequestMethod.GET)
-    public String getModulePage(Model model, HttpSession session){
-        Company company = (Company) session.getAttribute("login");
-        Account account = (Account) session.getAttribute("account");
+    @RequestMapping(value = "/modules", method = RequestMethod.GET)
+    public String getModulePage(Model model){
+        Company company = SecurityContextCustom.getAccount().getCompany();
 
-        model.addAttribute("account", account);
         model.addAttribute("title", "Select Modules");
         model.addAttribute("modules", moduleService.findAllModules(company.getId()));
         model.addAttribute("notAdded", moduleService.findModulesNotAdded(company.getId()));
-        model.addAttribute("login", company);
         return "webpage/modules";
     }
 
-    @RequestMapping(value = "/company-dashboard/modules/delete", method = RequestMethod.POST)
-    public String postModulePage(@ModelAttribute ModuleForm moduleForm, HttpSession session){
-        Company company = (Company) session.getAttribute("login");
+    @RequestMapping(value = "/modules/delete", method = RequestMethod.POST)
+    public String postModulePage(@ModelAttribute ModuleForm moduleForm){
+        Company company = SecurityContextCustom.getAccount().getCompany();
         moduleService.deleteModuleById(moduleForm.getId(), company.getId());
         return "redirect:/company-dashboard/modules";
     }
 
-    @RequestMapping(value = "/company-dashboard/modules/add", method = RequestMethod.POST)
-    public String postDeleteModule(@ModelAttribute ModuleForm moduleForm, HttpSession session){
-        System.out.println(moduleForm.getId());
-        Company company = (Company) session.getAttribute("login");
+    @RequestMapping(value = "/modules/add", method = RequestMethod.POST)
+    public String postDeleteModule(@ModelAttribute ModuleForm moduleForm){
+        Company company = SecurityContextCustom.getAccount().getCompany();
         moduleService.addModule(moduleForm.getId(), company.getId());
         return "redirect:/company-dashboard/modules";
     }
 
-    @RequestMapping(value = "/company-dashboard/add-customer", method = RequestMethod.POST)
-    public String postCustomerForm(@ModelAttribute CustomerForm customerForm, HttpSession httpSession) throws MessagingException{
-        Company company = (Company) httpSession.getAttribute("login");
+    @RequestMapping(value = "/add-customer", method = RequestMethod.POST)
+    public String postCustomerForm(@ModelAttribute CustomerForm customerForm) throws MessagingException{
+        Company company = SecurityContextCustom.getAccount().getCompany();
         peopleService.createPeopleAccount(customerForm.getFirstName(), customerForm.getLastName(), customerForm.getEmail(), company.getId(), customerForm.getType());
         return "redirect:/company-dashboard/add-customer";
     }
 
-    @RequestMapping(value = "/company-dashboard", method = RequestMethod.GET)
-    public String getCompanyDashboardData(Model model, HttpSession session){
-        Company company = (Company) session.getAttribute("login");
-        Account account = (Account) session.getAttribute("account");
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public String getCompanyDashboardData(Model model){
+        Company company = SecurityContextCustom.getAccount().getCompany();
 
-        model.addAttribute("account", account);
-        model.addAttribute("login", company);
-
-        List<ModuleReturnData> ModuleReturnData = new ArrayList<>();
-        List<Integer> qviScores = new ArrayList<>();
-        ModuleReturnData = companyService.findModuleScores(company.getId());
-        qviScores = companyService.findQviScores(company.getId());
+        List<ModuleReturnData> ModuleReturnData = companyService.findModuleScores(company.getId());
+        List<Integer> qviScores = companyService.findQviScores(company.getId());
         Company CompanyName = companyService.findCompanyNameById(company.getId());
-        model.addAttribute("CompanyName", CompanyName.getName());
 
+        model.addAttribute("CompanyName", CompanyName.getName());
         model.addAttribute("ModuleScores", ModuleReturnData );
         model.addAttribute("QviScores", qviScores );
-
 
         return "webpage/company_dashboard";
     }
 
 
-    @RequestMapping(value = "/company-dashboard/add-assessment", method = RequestMethod.GET)
+    @RequestMapping(value = "/add-assessment", method = RequestMethod.GET)
     public String addAssessment(Model model){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDate localDate = LocalDate.now();
@@ -128,8 +112,7 @@ public class CompanyController {
 
 
     @RequestMapping(value = "/company/get-company-qvi/{id}", method = RequestMethod.GET)
-    public  @ResponseBody Long getCompanyQviById(@PathVariable int id, Model model, HttpSession session){
-        System.out.println(id);
+    public  @ResponseBody Long getCompanyQviById(@PathVariable int id, Model model){
         return companyService.getCompanyQvi((long) id);
     }
 
@@ -155,12 +138,10 @@ public class CompanyController {
     }
 
     @RequestMapping(value = "/create-assessment", method = RequestMethod.GET)
-    public String createAssessment(Model model, HttpSession session){
-        Account account = (Account) session.getAttribute("account");
-
+    public String createAssessment(Model model){
+        Account account = SecurityContextCustom.getAccount();
         model.addAttribute("account", account);
-        Company company = (Company) session.getAttribute("login");
-        assessmentService.createAssessment(company.getId());
+        assessmentService.createAssessment(account.getCompany().getId());
         return "redirect:/company-dashboard";
     }
 }

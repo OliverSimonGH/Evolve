@@ -19,7 +19,7 @@
         </tbody>
     </table>
     <div class="right">
-        <a class="btn btn-danger" th:href="@{'/dashboardAssessor/' + ${company.id} + '/' + ${assessment}}">Go Back</a>
+        <a class="btn btn-danger" th:href="@{'/assessor-dashboard/' + ${company.id} + '/' + ${assessment}}">Go Back</a>
     </div>
 </div>
 
@@ -36,14 +36,14 @@
 
             /*<![CDATA[*/
 
-            $.getJSON("/comments", {module: module, question: questionId, result: result},
+            $.getJSON("/assessor-dashboard/comments", {module: module, question: questionId, result: result},
                 function (data) {
                     for (var i = 0; i < data.length; i++) {
-                        var score = data[i].score
+                        var score = data[i].score;
                         var comment = data[i].comment == null ? "No Comment" : data[i].comment;
                         
                         $(table).find("tbody").append("<tr><td>" + score + "</td><td>" + comment + "</td></tr>");
-                    };
+                    }
                 }
             );
 

@@ -1,6 +1,5 @@
 package com.nsa.evolve.service;
 
-import com.nsa.evolve.dto.Account;
 import com.nsa.evolve.dto.People;
 
 import javax.mail.MessagingException;
@@ -10,6 +9,7 @@ import javax.mail.MessagingException;
  */
 public interface PeopleService {
 
+    People findPeopleByAccount(Integer foreignKey);
     People findPeopleByAccount(String email, String password);
     boolean createPeopleAccount(String first_name, String last_name, String email, Integer fkCompany, Integer fkType) throws MessagingException;
 

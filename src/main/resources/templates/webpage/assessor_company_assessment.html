@@ -14,7 +14,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="assessment : ${assessments}" th:href="@{'/dashboardAssessor/' + ${company.id} + '/' + ${assessment.id}}">
+        <tr th:each="assessment : ${assessments}" th:href="@{'/assessor-dashboard/' + ${company.id} + '/' + ${assessment.id}}">
             <td th:text="${assessment.date}"/>
             <td th:text="${assessment.approved}"/>
             <td th:text="${assessment.qviScore}"/>

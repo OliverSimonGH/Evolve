@@ -15,4 +15,5 @@ public interface AssessmentDAO {
     int getAssessmentId(Integer companyID);
     void addQviToAssessment(Integer qvi,Integer companyID);
     Assessment getAssessmentLastCreated(Integer companyID);
+
 }

@@ -4,10 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,5 +16,11 @@ public class Assessor {
     public Assessor(String name, Integer fkAccount) {
         this.name = name;
         this.fkAccount = fkAccount;
+    }
+
+    public Assessor(Assessor assessor) {
+        this.id = assessor.getId();
+        this.name = assessor.getName();
+        this.fkAccount = assessor.getFkAccount();
     }
 }

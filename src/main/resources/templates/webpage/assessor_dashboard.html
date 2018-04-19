@@ -9,7 +9,7 @@
             <nav class="navbar navbar-sub">
                 <div class="container">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="/Assessor-compare">Compare Company QVi's</a>
+                        <a class="navbar-brand" href="/assessor-dashboard/assessor-compare">Compare Company QVi's</a>
                     </div>
                 </div>
             </nav>
@@ -27,7 +27,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="questionnaire : ${questionnaires}" th:href="@{'/dashboardAssessor/questionnaire/' + ${questionnaire.id}}">
+            <tr th:each="questionnaire : ${questionnaires}" th:href="@{'/assessor-dashboard/questionnaire/' + ${questionnaire.id}}">
                 <td th:text="${questionnaire.name}"/>
             </tr>
             </tbody>
@@ -43,7 +43,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="company : ${companies}" th:href="@{'/dashboardAssessor/' + ${company.id}}">
+            <tr th:each="company : ${companies}" th:href="@{'/assessor-dashboard/' + ${company.id}}">
                 <td th:text="${company.name}"/>
             </tr>
             </tbody>

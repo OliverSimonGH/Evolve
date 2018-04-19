@@ -2,8 +2,6 @@ package com.nsa.evolve.service;
 
 import com.nsa.evolve.dto.Account;
 
-import javax.persistence.criteria.CriteriaBuilder;
-
 /**
  * Created by c1633899 on 24/11/2017.
  */

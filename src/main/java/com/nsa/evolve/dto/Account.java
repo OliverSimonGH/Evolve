@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -18,8 +16,27 @@ public class Account {
     private String password;
     private String salt;
     private List<String> roles;
+    private Company company;
+    private People people;
+    private Assessor assessor;
 
     public Account(String email, String password, String salt, List<String> roles) {
+        this.email = email;
+        this.password = password;
+        this.salt = salt;
+        this.roles = roles;
+    }
+
+    public Account(Account account) {
+        this.id = account.getId();
+        this.email = account.getEmail();
+        this.password = account.getPassword();
+        this.salt = account.getSalt();
+        this.roles = account.getRoles();
+    }
+
+    public Account(Integer id, String email, String password, String salt, List<String> roles) {
+        this.id = id;
         this.email = email;
         this.password = password;
         this.salt = salt;

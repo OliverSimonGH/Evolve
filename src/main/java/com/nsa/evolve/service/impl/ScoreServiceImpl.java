@@ -4,7 +4,6 @@ import com.nsa.evolve.dao.ScoreDAO;
 import com.nsa.evolve.dto.Score;
 import com.nsa.evolve.service.ScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

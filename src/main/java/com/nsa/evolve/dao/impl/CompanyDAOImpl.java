@@ -2,7 +2,6 @@ package com.nsa.evolve.dao.impl;
 
 import com.nsa.evolve.dao.CompanyDAO;
 import com.nsa.evolve.dto.Company;
-import com.nsa.evolve.dto.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;

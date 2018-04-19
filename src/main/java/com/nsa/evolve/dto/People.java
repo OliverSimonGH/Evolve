@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,5 +22,14 @@ public class People {
         this.fkCompany = fkCompany;
         this.fkAccount = fkAccount;
         this.fkType = fkType;
+    }
+
+    public People(People people) {
+        this.id = people.getId();
+        this.firstName = people.getFirstName();
+        this.lastName = people.getLastName();
+        this.fkCompany = people.getFkCompany();
+        this.fkAccount = people.getFkAccount();
+        this.fkType = people.getFkType();
     }
 }

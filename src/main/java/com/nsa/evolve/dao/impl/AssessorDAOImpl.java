@@ -1,8 +1,8 @@
 package com.nsa.evolve.dao.impl;
 
-import com.nsa.evolve.classes.ShortCompanyData;
 import com.nsa.evolve.dao.AssessorDAO;
 import com.nsa.evolve.dto.Assessor;
+import com.nsa.evolve.dto.ShortCompanyData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;

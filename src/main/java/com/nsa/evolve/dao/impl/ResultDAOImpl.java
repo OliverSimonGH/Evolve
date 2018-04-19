@@ -1,6 +1,5 @@
 package com.nsa.evolve.dao.impl;
 
-import com.nsa.evolve.classes.ShortCompanyData;
 import com.nsa.evolve.dao.AssessmentDAO;
 import com.nsa.evolve.dao.ResultDAO;
 import com.nsa.evolve.dto.Result;
@@ -8,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @Repository

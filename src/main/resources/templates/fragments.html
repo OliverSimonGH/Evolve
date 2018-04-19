@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:fragement="head">
     <meta charset="UTF-8"/>
     <title th:text="${title}">Questionnaire</title>
@@ -20,42 +20,40 @@
     <div class="wrapper">
 
         <ul>
-            <div class="left">
+            <div class="left" sec:authorize="isAuthenticated()">
                 <li>
                     <a href="#">Evolve</a>
                 </li>
-                <li th:if="${account != null AND account.fkType == 2}">
+                <li sec:authorize="hasRole('CUSTOMER')">
                     <!--Customer & account.fkType == 2-->
-                    <a href="/dashboard">Dashboard</a>
+                    <a href="/customer-dashboard">Dashboard</a>
                 </li>
-                <li th:if="${account != null AND account.fkType == 1}">
+                <li sec:authorize="hasRole('COMPANY')">
                     <!--Company & account.fkType == 1-->
                     <a href="/company-dashboard">Dashboard</a>
                 </li>
-                <li th:if="${account != null AND account.fkType == 3}">
+                <li sec:authorize="hasRole('ASSESSOR')">
                     <!--Assessor & account.fkType == 3-->
-                    <a href="/dashboardAssessor">Dashboard</a>
+                    <a href="/assessor-dashboard">Dashboard</a>
                 </li>
 
             </div>
 
             <div class="right">
-                <li th:if="${account == null}">
+                <li sec:authorize="!isAuthenticated()">
                     <a href="/signup"><i class="fa fa-user" aria-hidden="true"></i>Signup</a>
                 </li>
-                <li th:if="${account == null}">
+                <li sec:authorize="!isAuthenticated()">
                     <a href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</a>
                 </li>
-                <li th:if="${account != null}" id="logout">
+                <li sec:authorize="isAuthenticated()" id="logout">
                     <a href="#">Account<i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a>
                     <ul>
                         <li>
                             <a href="/settings"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a>
                         </li>
                         <li>
-                            <form action="/logout" method="post" id="logout-form">
-                                <a><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
-                            </form>
+                                <a th:href="@{/logout}"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
                         </li>
                     </ul>
                 </li>

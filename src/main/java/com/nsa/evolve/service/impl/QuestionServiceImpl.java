@@ -1,13 +1,10 @@
 package com.nsa.evolve.service.impl;
 
 
-import com.nsa.evolve.dto.Question;
-import com.nsa.evolve.dto.Questionnaire;
 import com.nsa.evolve.dao.QuestionDAO;
+import com.nsa.evolve.dto.Question;
 import com.nsa.evolve.service.QuestionService;
-import com.nsa.evolve.service.QuestionnaireService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -69,14 +69,14 @@
 
         $.ajax({ //send the ajax request
             type: "GET",
-            url: "/company/get-company-qvi/" + compId,
+            url: "/company-dashboard/company/get-company-qvi/" + compId,
             dataType:"json",
             encode:true
         }).done(function (returnData) {
             var companyQvi = returnData;
             var array = ["rgb(223, 20, 20)", "rgb(251, 243, 23)", "rgb(103, 251, 23)", "rgb(23, 251, 228)", "rgb(3, 73, 226)", "rgb(248, 11, 118)"];
 
-            var randInt = Math.floor((Math.random() * 5) + 0);;
+            var randInt = Math.floor((Math.random() * 5) + 0);
             var item = array[randInt];
 
             var newDataset = {
@@ -85,7 +85,7 @@
                 borderColor: item,
                 borderWidth: 1,
                 data: [companyQvi],
-            }
+            };
 
             var dn = myChart.data.datasets.length;
             if (dn != 10) {
@@ -151,7 +151,7 @@
         chart.data.labels.pop();
         chart.data.datasets.forEach((dataset) => {
             dataset.data.pop();
-    });
+    })
         chart.update();
         createBaseGraph();
     }

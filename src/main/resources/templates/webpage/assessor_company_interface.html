@@ -11,7 +11,7 @@
         <div class="offset-1"></div>
         <div class="col-md-2" th:each="module : ${modules}">
             <div class="module-circle" th:id="@{'circle' + ${module.module}}" th:attr="data-id=${module.fkModule}">
-                <a th:href="@{'/dashboardAssessor/' + ${company.id} + '/' + ${assessment} + '/questions?q=' + ${module.module} + '&amp;f=' + ${module.fkModule} + '&amp;r=' + ${assessment}}"
+                <a th:href="@{'/assessor-dashboard/' + ${company.id} + '/' + ${assessment} + '/questions?q=' + ${module.module} + '&amp;f=' + ${module.fkModule} + '&amp;r=' + ${assessment}}"
                    class="circle-link">
                     <h3 th:text="${module.name}"></h3>
                     <!--<p class="num"></p>-->
@@ -19,7 +19,7 @@
             </div>
         </div>
     </div>
-    <a class="btn btn-danger" th:href="@{'/dashboardAssessor/' + ${company.id}}">Back</a>
+    <a class="btn btn-danger" th:href="@{'/assessor-dashboard/' + ${company.id}}">Back</a>
 </div>
 </body>
 </html>

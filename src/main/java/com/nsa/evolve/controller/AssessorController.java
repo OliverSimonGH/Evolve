@@ -1,9 +1,6 @@
 package com.nsa.evolve.controller;
 
-import com.nsa.evolve.classes.ShortCompanyData;
-import com.nsa.evolve.dto.Account;
-import com.nsa.evolve.dto.Assessor;
-import com.nsa.evolve.dto.Score;
+import com.nsa.evolve.dto.*;
 import com.nsa.evolve.form.AssessmentForm;
 import com.nsa.evolve.form.QuestionDeleteForm;
 import com.nsa.evolve.form.QuestionForm;
@@ -17,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
+@RequestMapping("/assessor-dashboard")
 public class AssessorController {
 
     private ResultService resultService;
@@ -44,24 +42,17 @@ public class AssessorController {
         return resultService.findTotalQuestionnaire(module, company);
     }
 
-    @RequestMapping("/dashboardAssessor")
-    public String getAssessorDashboard(HttpSession session, Model model) {
-        Assessor assessor = (Assessor) session.getAttribute("login");
-        Account account = (Account) session.getAttribute("account");
-
-        model.addAttribute("account", account);
-        model.addAttribute("companies", companyService.findCompanyByAssessorId(assessor.getId()));
+    @RequestMapping("")
+    public String getAssessorDashboard(Model model) {
+        AccountDetails account = SecurityContextCustom.getAccount();
+        model.addAttribute("companies", companyService.findCompanyByAssessorId(account.getAssessor().getId()));
         model.addAttribute("questionnaires", questionnaireService.findAllQuestionnaires());
         model.addAttribute("title", "AssessorDashboard");
-        model.addAttribute("login", assessor);
         return "webpage/assessor_dashboard";
     }
 
-    @RequestMapping("/dashboardAssessor/{id}/{assessment}")
+    @RequestMapping("/{id}/{assessment}")
     public String getCompanyModules(@PathVariable("id") Integer id, @PathVariable("assessment") Integer assessment, HttpSession session, Model model) {
-        Account account = (Account) session.getAttribute("account");
-
-        model.addAttribute("account", account);
         model.addAttribute("company", companyService.findCompanyNameById(id));
         model.addAttribute("modules", assessmentService.getRMADataByAssessment(assessment));
         model.addAttribute("assessment", assessment);
@@ -69,23 +60,16 @@ public class AssessorController {
         return "webpage/assessor_company_interface";
     }
 
-    @RequestMapping("/dashboardAssessor/{id}")
+    @RequestMapping("/{id}")
     public String getCompanyAssessments(@PathVariable("id") Integer id, HttpSession session, Model model) {
-        model.addAttribute("title", "Company");
-        Account account = (Account) session.getAttribute("account");
-
-        model.addAttribute("account", account);
         model.addAttribute("company", companyService.findCompanyNameById(id));
         model.addAttribute("assessments", assessmentService.getAllByCompanyId(id));
         model.addAttribute("title", "Company Assessments");
         return "webpage/assessor_company_assessment";
     }
 
-    @RequestMapping(value = "/dashboardAssessor/{id}/{assessment}/questions", method = RequestMethod.GET)
-    public String generateQuestionnaire(@PathVariable("id") Integer id, @PathVariable("assessment") Integer assessment, @RequestParam("q") Integer q, @RequestParam("f") Integer fk, @RequestParam("r") Integer r, Model model, HttpSession session) {
-        Account account = (Account) session.getAttribute("account");
-
-        model.addAttribute("account", account);
+    @RequestMapping(value = "/{id}/{assessment}/questions", method = RequestMethod.GET)
+    public String generateQuestionnaire(@PathVariable("id") Integer id, @PathVariable("assessment") Integer assessment, @RequestParam("q") Integer q, @RequestParam("f") Integer fk, @RequestParam("r") Integer r, Model model) {
         model.addAttribute("company", companyService.findCompanyNameById(id));
         model.addAttribute("questions", questionService.findAllQuestionsByQuestionnaire(q));
         model.addAttribute("title", "Verify Questionnaire");
@@ -104,16 +88,15 @@ public class AssessorController {
     @RequestMapping(value = "/company-qvi/{id}", method = RequestMethod.GET)
     public @ResponseBody
     Long getCompanyDashboardData(@PathVariable(value = "id") int id,
-                                 @RequestParam int idAttr, Model model, HttpSession session){
+                                 @RequestParam int idAttr, Model model){
         Long companyQvi = companyService.getCompanyQvi((long) id);
 
         return companyQvi;
     }
 
-    @RequestMapping(value = "/Assessor-compare", method = RequestMethod.GET)
+    @RequestMapping(value = "/assessor-compare", method = RequestMethod.GET)
     public String getCompanyAverage(Model model, HttpSession session){
-        Assessor assessor = (Assessor) session.getAttribute("login");
-        int id = assessor.getId();
+        int id = SecurityContextCustom.getAccount().getAssessor().getId();
         List<ShortCompanyData> assessorCompanies = assessorService.getAssessorCompanies((long)id);
         Long industryAverage = companyService.getIndustryAverage();
         String assessorName = assessorService.getAssessorName((long)id);
@@ -128,14 +111,11 @@ public class AssessorController {
     @RequestMapping(value = "/assessment/approve/{id}", method = RequestMethod.POST)
     public String approveAssessment(@PathVariable("id") Integer id, AssessmentForm assessmentForm){
         assessmentService.approveAssessment(assessmentForm.getAssessmentId());
-        return "redirect:/dashboardAssessor/" + id;
+        return "redirect:/assessor-dashboard/" + id;
     }
 
-    @RequestMapping(value = "/dashboardAssessor/questionnaire/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/questionnaire/{id}", method = RequestMethod.GET)
     public String getQuestionnairePage(@PathVariable("id") Integer id, HttpSession session, Model model){
-        Account account = (Account) session.getAttribute("account");
-
-        model.addAttribute("account", account);
         model.addAttribute("questions", questionService.findAllQuestionsByQuestionnaire(id));
         model.addAttribute("title", "Edit Questionnaire");
         model.addAttribute("id", id);
@@ -145,7 +125,7 @@ public class AssessorController {
     @RequestMapping(value = "/question/add", method = RequestMethod.POST)
     public String createQuestion(QuestionForm questionForm){
         questionService.createQuestion(questionForm.getQuestion(), questionForm.getId());
-        return "redirect:/dashboardAssessor/questionnaire/" + questionForm.getId();
+        return "redirect:/assessor-dashboard/questionnaire/" + questionForm.getId();
     }
 
     @ResponseBody
