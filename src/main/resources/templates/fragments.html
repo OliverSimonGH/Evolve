@@ -3,7 +3,6 @@
 <head th:fragement="head">
     <meta charset="UTF-8"/>
     <title th:text="${title}">Questionnaire</title>
-
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../static/css/bootstrap.css"/>
     <link rel="stylesheet" th:href="@{/css/master.css}" href="../static/css/master.css"/>
     <script th:src="@{/js/jquery.js}" src="../static/js/jquery.js"></script>
@@ -13,6 +12,8 @@
     <script th:src="@{/js/assessor.js}" src="../static/js/assessor.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
     <script src="https://use.fontawesome.com/62a2fac236.js"></script>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 </head>
 <body>
 

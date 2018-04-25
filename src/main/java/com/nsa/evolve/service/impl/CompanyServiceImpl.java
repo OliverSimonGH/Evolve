@@ -2,15 +2,14 @@ package com.nsa.evolve.service.impl;
 
 import com.nsa.evolve.dao.CompanyDAO;
 import com.nsa.evolve.dao.ModuleDAO;
-import com.nsa.evolve.dto.Account;
-import com.nsa.evolve.dto.Company;
-import com.nsa.evolve.dto.Module;
-import com.nsa.evolve.dto.ModuleReturnData;
+import com.nsa.evolve.dto.*;
 import com.nsa.evolve.service.AccountService;
 import com.nsa.evolve.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,18 +32,21 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public Company findCompanyByAccount(String email, String password) {
-        Account account = accountService.findByEmailAndPassword(email, password);
+        Account account = accountService.findByEmail(email);
 
         if (account != null) return companyDAO.findCompanyByAccount(account.getId());
         else return null;
     }
 
     @Override
-    public boolean createCompanyAccount(String name, String email, String password) {
-        Boolean result = accountService.createAccount(email, password, 1);
+    @Transactional
+    public boolean createCompanyAccount(String name, String email, String password) throws NoSuchAlgorithmException {
+        Boolean result = accountService.createAccount(email, password);
 
         if (result){
-            Account account = accountService.findByEmailAndPassword(email, password);
+            Account account = accountService.findByEmail(email);
+            System.out.println(account.getId());
+            accountService.insertRoles(account.getId(), Roles.ROLE_COMPANY);
             companyDAO.createCompanyAccount(name, account.getId());
             return true;
         }

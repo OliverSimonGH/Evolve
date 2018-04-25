@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.security.NoSuchAlgorithmException;
 
 @Controller
 public class AccountController {
@@ -48,7 +49,7 @@ public class AccountController {
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String postSignupPage(@ModelAttribute @Valid SignupForm signupForm, BindingResult bindingResult, RedirectAttributes redirectAttributes){
+    public String postSignupPage(@ModelAttribute @Valid SignupForm signupForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) throws NoSuchAlgorithmException {
         if (bindingResult.hasErrors()) {
             return "webpage/signup";
         }

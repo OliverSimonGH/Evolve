@@ -2,14 +2,18 @@ package com.nsa.evolve.service.impl;
 
 import com.nsa.evolve.dao.PeopleDAO;
 import com.nsa.evolve.dto.Account;
+import com.nsa.evolve.dto.Password;
 import com.nsa.evolve.dto.People;
+import com.nsa.evolve.dto.Roles;
 import com.nsa.evolve.service.AccountService;
 import com.nsa.evolve.service.MailService;
 import com.nsa.evolve.service.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.mail.MessagingException;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Created by c1633899 on 24/11/2017.
@@ -35,20 +39,22 @@ public class PeopleServiceImpl implements PeopleService {
 
     @Override
     public People findPeopleByAccount(String email, String password) {
-        Account account = accountService.findByEmailAndPassword(email, password);
+        Account account = accountService.findByEmail(email);
 
         if (account != null) return peopleDAO.findPeopleByAccount(account.getId());
         else return null;
     }
 
     @Override
-    public boolean createPeopleAccount(String first_name, String last_name, String email, Integer fkCompany, Integer fkType) throws MessagingException{
-        String password = accountService.generatePassword(25);
-        Boolean result = accountService.createAccount(email, password, 2);
+    @Transactional
+    public boolean createPeopleAccount(String first_name, String last_name, String email, Integer fkCompany, Integer fkType) throws MessagingException, NoSuchAlgorithmException {
+        String password = Password.generatePassword(16);
+        Boolean result = accountService.createAccount(email, password);
 
         if (result){
-            Account account = accountService.findByEmailAndPassword(email, password);
+            Account account = accountService.findByEmail(email);
             peopleDAO.createPeopleAccount(first_name, last_name, fkCompany, account.getId(), fkType);
+            accountService.insertRoles(account.getId(), Roles.ROLE_CUSTOMER);
             mailService.send(email, "Account registered", "username: " + email + ", password: " + password);
             return true;
         }

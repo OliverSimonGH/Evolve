@@ -1,9 +1,9 @@
 package com.nsa.evolve.form;
 
+import com.nsa.evolve.validator.EmailValid;
+import com.nsa.evolve.validator.PassValid;
 import lombok.Data;
-import org.hibernate.validator.constraints.Email;
 
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -12,16 +12,12 @@ import javax.validation.constraints.Size;
 @Data
 public class SignupForm {
 
-    @NotNull
-    @Size(min = 3, message = "Enter a name that's 3 characters or longer")
+    @Size(min = 3, message = "Company must contain at least 3 characters")
     private String name;
 
-    @NotNull
-    @Email
-    @Size(min = 3, message = "Enter an email with the correct format example@example.com")
+    @EmailValid
     private String email;
 
-    @NotNull
-    @Size(min = 5, message = "Enter a password that's 5 characters or longer")
+    @PassValid
     private String password;
 }

@@ -3,7 +3,10 @@ package com.nsa.evolve.Security;
 import com.nsa.evolve.dao.AssessorDAO;
 import com.nsa.evolve.dao.CompanyDAO;
 import com.nsa.evolve.dao.PeopleDAO;
+import com.nsa.evolve.dto.Account;
 import com.nsa.evolve.dto.AccountDetails;
+import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -20,6 +23,7 @@ import java.io.IOException;
 import java.util.Collection;
 
 @Configuration
+@NoArgsConstructor
 public class AuthenticationSuccessConfig implements AuthenticationSuccessHandler {
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
@@ -27,6 +31,7 @@ public class AuthenticationSuccessConfig implements AuthenticationSuccessHandler
     private PeopleDAO peopleDAO;
     private CompanyDAO companyDAO;
 
+    @Autowired
     public AuthenticationSuccessConfig(AssessorDAO assessorDAO, PeopleDAO peopleDAO, CompanyDAO companyDAO) {
         this.assessorDAO = assessorDAO;
         this.peopleDAO = peopleDAO;

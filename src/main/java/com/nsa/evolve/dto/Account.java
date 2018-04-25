@@ -14,16 +14,14 @@ public class Account {
     private Integer id;
     private String email;
     private String password;
-    private String salt;
     private List<String> roles;
     private Company company;
     private People people;
     private Assessor assessor;
 
-    public Account(String email, String password, String salt, List<String> roles) {
+    public Account(String email, String password, List<String> roles) {
         this.email = email;
         this.password = password;
-        this.salt = salt;
         this.roles = roles;
     }
 
@@ -31,15 +29,13 @@ public class Account {
         this.id = account.getId();
         this.email = account.getEmail();
         this.password = account.getPassword();
-        this.salt = account.getSalt();
         this.roles = account.getRoles();
     }
 
-    public Account(Integer id, String email, String password, String salt, List<String> roles) {
+    public Account(Integer id, String email, String password, List<String> roles) {
         this.id = id;
         this.email = email;
         this.password = password;
-        this.salt = salt;
         this.roles = roles;
     }
 }

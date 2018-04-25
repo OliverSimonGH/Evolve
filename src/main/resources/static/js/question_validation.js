@@ -31,7 +31,7 @@ $(Document).ready(function () {
         if ($('#comment').prop("disabled") == true && $('input:checkbox:checked').length == 2) {
             submitScore();
             style();
-        } else if ($('#comment').prop("disabled") == false && $('input:checkbox:checked').length == 2 && $('#comment').val().length >= 10) {
+        } else if ($('#comment').prop("disabled") == false && $('input:checkbox:checked').length == 2 && $('#comment').val().length > 10) {
             submitScore();
             style();
         } else {
@@ -112,7 +112,7 @@ $(Document).ready(function () {
     function style() {
         //after the last question, this will redirect you to the dashboard
         if (pagenum == json.length - 1){
-            window.location.href = "http://localhost:8080/dashboard";
+            window.location.href = "http://localhost:8080/customer-dashboard";
             // this if else statement changes from submit to finish button
         } else if (pagenum == json.length - 2){
             $('#question-next').html("Finish<i class='fa fa-flag' aria-hidden='true'></i>");

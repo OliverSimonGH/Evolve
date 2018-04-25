@@ -6,6 +6,7 @@ import com.nsa.evolve.form.QuestionDeleteForm;
 import com.nsa.evolve.form.QuestionForm;
 import com.nsa.evolve.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -44,7 +45,7 @@ public class AssessorController {
 
     @RequestMapping("")
     public String getAssessorDashboard(Model model) {
-        AccountDetails account = SecurityContextCustom.getAccount();
+        Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("companies", companyService.findCompanyByAssessorId(account.getAssessor().getId()));
         model.addAttribute("questionnaires", questionnaireService.findAllQuestionnaires());
         model.addAttribute("title", "AssessorDashboard");
@@ -96,7 +97,8 @@ public class AssessorController {
 
     @RequestMapping(value = "/assessor-compare", method = RequestMethod.GET)
     public String getCompanyAverage(Model model, HttpSession session){
-        int id = SecurityContextCustom.getAccount().getAssessor().getId();
+        Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        int id = account.getAssessor().getId();
         List<ShortCompanyData> assessorCompanies = assessorService.getAssessorCompanies((long)id);
         Long industryAverage = companyService.getIndustryAverage();
         String assessorName = assessorService.getAssessorName((long)id);

@@ -1,9 +1,9 @@
 package com.nsa.evolve.controller;
 
 import com.nsa.evolve.dto.Account;
+import com.nsa.evolve.dto.AccountDetails;
 import com.nsa.evolve.dto.Company;
 import com.nsa.evolve.dto.ModuleReturnData;
-import com.nsa.evolve.dto.SecurityContextCustom;
 import com.nsa.evolve.form.CustomerForm;
 import com.nsa.evolve.form.ModuleForm;
 import com.nsa.evolve.form.PDFForm;
@@ -13,15 +13,16 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -57,7 +58,8 @@ public class CompanyController {
 
     @RequestMapping(value = "/modules", method = RequestMethod.GET)
     public String getModulePage(Model model){
-        Company company = SecurityContextCustom.getAccount().getCompany();
+        Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Company company = account.getCompany();
 
         model.addAttribute("title", "Select Modules");
         model.addAttribute("modules", moduleService.findAllModules(company.getId()));
@@ -67,28 +69,32 @@ public class CompanyController {
 
     @RequestMapping(value = "/modules/delete", method = RequestMethod.POST)
     public String postModulePage(@ModelAttribute ModuleForm moduleForm){
-        Company company = SecurityContextCustom.getAccount().getCompany();
+        Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Company company = account.getCompany();
         moduleService.deleteModuleById(moduleForm.getId(), company.getId());
         return "redirect:/company-dashboard/modules";
     }
 
     @RequestMapping(value = "/modules/add", method = RequestMethod.POST)
     public String postDeleteModule(@ModelAttribute ModuleForm moduleForm){
-        Company company = SecurityContextCustom.getAccount().getCompany();
+        Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Company company = account.getCompany();
         moduleService.addModule(moduleForm.getId(), company.getId());
         return "redirect:/company-dashboard/modules";
     }
 
     @RequestMapping(value = "/add-customer", method = RequestMethod.POST)
-    public String postCustomerForm(@ModelAttribute CustomerForm customerForm) throws MessagingException{
-        Company company = SecurityContextCustom.getAccount().getCompany();
+    public String postCustomerForm(@ModelAttribute CustomerForm customerForm) throws MessagingException, NoSuchAlgorithmException {
+        Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Company company = account.getCompany();
         peopleService.createPeopleAccount(customerForm.getFirstName(), customerForm.getLastName(), customerForm.getEmail(), company.getId(), customerForm.getType());
         return "redirect:/company-dashboard/add-customer";
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String getCompanyDashboardData(Model model){
-        Company company = SecurityContextCustom.getAccount().getCompany();
+        Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Company company = account.getCompany();
 
         List<ModuleReturnData> ModuleReturnData = companyService.findModuleScores(company.getId());
         List<Integer> qviScores = companyService.findQviScores(company.getId());
@@ -139,7 +145,7 @@ public class CompanyController {
 
     @RequestMapping(value = "/create-assessment", method = RequestMethod.GET)
     public String createAssessment(Model model){
-        Account account = SecurityContextCustom.getAccount();
+        Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("account", account);
         assessmentService.createAssessment(account.getCompany().getId());
         return "redirect:/company-dashboard";

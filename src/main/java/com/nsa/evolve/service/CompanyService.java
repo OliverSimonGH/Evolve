@@ -3,6 +3,7 @@ package com.nsa.evolve.service;
 import com.nsa.evolve.dto.Company;
 import com.nsa.evolve.dto.ModuleReturnData;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ import java.util.List;
 public interface CompanyService {
 
     Company findCompanyByAccount(String email, String password);
-    boolean createCompanyAccount(String name, String email, String password);
+    boolean createCompanyAccount(String name, String email, String password) throws NoSuchAlgorithmException;
     List<Company> findCompanyByAssessorId(Integer fkAssessor);
     Company findCompanyNameById(Integer id);
     List<ModuleReturnData> findModuleScores(int id);

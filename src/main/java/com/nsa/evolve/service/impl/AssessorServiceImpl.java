@@ -3,12 +3,15 @@ package com.nsa.evolve.service.impl;
 import com.nsa.evolve.dao.AssessorDAO;
 import com.nsa.evolve.dto.Account;
 import com.nsa.evolve.dto.Assessor;
+import com.nsa.evolve.dto.Roles;
 import com.nsa.evolve.dto.ShortCompanyData;
 import com.nsa.evolve.service.AccountService;
 import com.nsa.evolve.service.AssessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 /**
@@ -28,7 +31,7 @@ public class AssessorServiceImpl implements AssessorService {
 
     @Override
     public Assessor findAssessorByAccount(String email, String password) {
-        Account account = accountService.findByEmailAndPassword(email, password);
+        Account account = accountService.findByEmail(email);
 
         if (account != null) return assessorDAO.findAssessorByAccount(account.getId());
         else return null;
@@ -36,11 +39,13 @@ public class AssessorServiceImpl implements AssessorService {
 
 
     @Override
-    public Boolean createAssessorAccount(String first_name, String email, String password){
-        Boolean result = accountService.createAccount(email, password, 3);
+    @Transactional
+    public Boolean createAssessorAccount(String first_name, String email, String password) throws NoSuchAlgorithmException {
+        Boolean result = accountService.createAccount(email, password);
 
         if (result){
-            Account account = accountService.findByEmailAndPassword(email, password);
+            Account account = accountService.findByEmail(email);
+            accountService.insertRoles(account.getId(), Roles.ROLE_ASSESSOR);
             assessorDAO.createAssessorAccount(first_name, account.getId());
             return true;
         }

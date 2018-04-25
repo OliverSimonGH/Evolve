@@ -21,6 +21,7 @@
             <td th:if="${assessment.approved == 0}">
                 <form th:action="@{'/assessment/approve/' + ${company.id}}" method="post">
                     <input type="hidden" th:value="${assessment.id}" name="assessmentId" />
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                     <button type="submit" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i>Approve</button>
                 </form></td>
         </tr>

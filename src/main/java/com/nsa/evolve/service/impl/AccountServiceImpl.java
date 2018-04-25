@@ -2,12 +2,12 @@ package com.nsa.evolve.service.impl;
 
 import com.nsa.evolve.dao.AccountDAO;
 import com.nsa.evolve.dto.Account;
+import com.nsa.evolve.dto.Roles;
 import com.nsa.evolve.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.security.SecureRandom;
 
 /**
  * Created by c1633899 on 24/11/2017.
@@ -15,41 +15,28 @@ import java.security.SecureRandom;
 @Service
 public class AccountServiceImpl implements AccountService{
 
+    @Autowired
     private AccountDAO accountDAO;
 
     @Autowired
-    public AccountServiceImpl(AccountDAO accountDAO) {
-        this.accountDAO = accountDAO;
-    }
+    private PasswordEncoder passwordEncoder;
 
     @Override
-    public Account findByEmailAndPassword(String email, String password) {
+    public Account findByEmail(String email) {
         try {
-            return accountDAO.findAccount(email, password);
+            return accountDAO.findAccount(email);
         } catch (EmptyResultDataAccessException e){
             return null;
         }
     }
 
     @Override
-    public Boolean createAccount(String email, String password, Integer foreignKey) {
+    public Boolean createAccount(String email, String password) {
         if (!accountDAO.checkAccountExists(email)){
-            accountDAO.createAccount(email, password, foreignKey);
+            accountDAO.createAccount(email, passwordEncoder.encode(password));
             return true;
         }
         return false;
-    }
-
-//    https://stackoverflow.com/questions/41107/how-to-generate-a-random-alpha-numeric-string
-    @Override
-    public String generatePassword(Integer length) {
-        String available = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        SecureRandom random = new SecureRandom();
-
-        StringBuilder sb = new StringBuilder(length);
-        for( int i = 0; i < length; i++ )
-            sb.append( available.charAt( random.nextInt(available.length()) ) );
-        return sb.toString();
     }
 
     @Override
@@ -62,5 +49,15 @@ public class AccountServiceImpl implements AccountService{
         }
 
         return false;
+    }
+
+    @Override
+    public void insertRoles(Integer accountId, Roles role) {
+        accountDAO.insertRoles(accountId, role);
+    }
+
+    @Override
+    public void updatePassword(Integer accountId, String password) {
+        accountDAO.changePassword(password, accountId);
     }
 }

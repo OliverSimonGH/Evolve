@@ -1,11 +1,11 @@
 package com.nsa.evolve.controller;
 
 import com.nsa.evolve.dto.Account;
-import com.nsa.evolve.dto.Company;
+import com.nsa.evolve.dto.AccountDetails;
 import com.nsa.evolve.dto.People;
-import com.nsa.evolve.dto.SecurityContextCustom;
 import com.nsa.evolve.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,8 +35,8 @@ public class CustomerController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String getDashboard(Model model){
-
-        People people = SecurityContextCustom.getAccount().getPeople();
+        Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        People people = account.getPeople();
         model.addAttribute("title", "Dashboard");
         model.addAttribute("loginType", people.getFkType());
         model.addAttribute("modules", moduleService.findAllModules(people.getFkCompany()));
@@ -47,7 +47,8 @@ public class CustomerController {
 
     @RequestMapping(value = "/questionnaire", method = RequestMethod.GET)
     public String generateQuestionnaire(@RequestParam("q") Integer id, @RequestParam("f") Integer fk, Model model, HttpSession session) {
-        People people = SecurityContextCustom.getAccount().getPeople();
+        Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        People people = account.getPeople();
 
 
         model.addAttribute("num", assessmentService.countAssessments(people.getFkCompany(), fk));

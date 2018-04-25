@@ -2,6 +2,7 @@ package com.nsa.evolve.dao.impl;
 
 import com.nsa.evolve.dao.AccountDAO;
 import com.nsa.evolve.dto.Account;
+import com.nsa.evolve.dto.Roles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,14 +26,13 @@ public class AccountDAOImpl implements AccountDAO {
 
     @Override
     @Transactional
-    public Account findAccount(String email, String password) {
-        Account account = jdbcTemplate.queryForObject("SELECT * FROM account WHERE email = ? AND password = ?",
-                new Object[]{email, password},
+    public Account findAccount(String email) {
+        Account account = jdbcTemplate.queryForObject("SELECT * FROM account WHERE email = ?",
+                new Object[]{email},
                 (rs, rowNum) -> new Account(
                         rs.getInt("id"),
                         rs.getString("email"),
                         rs.getString("password"),
-                        rs.getString("salt"),
                         null
                 ));
 
@@ -42,8 +42,8 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     @Override
-    public void createAccount(String email, String password, Integer foreignKey) {
-        jdbcTemplate.update("INSERT INTO account (email, password, fk_type) VALUES (?, ?, ?)", email, password, foreignKey);
+    public void createAccount(String email, String password) {
+        jdbcTemplate.update("INSERT INTO account (email, password) VALUES (?, ?)", email, password);
     }
 
     @Override
@@ -55,7 +55,6 @@ public class AccountDAOImpl implements AccountDAO {
                             rs.getInt("id"),
                             rs.getString("email"),
                             rs.getString("password"),
-                            rs.getString("salt"),
                             null
                     ));
 
@@ -81,7 +80,6 @@ public class AccountDAOImpl implements AccountDAO {
                         rs.getInt("id"),
                         rs.getString("email"),
                         rs.getString("password"),
-                        rs.getString("salt"),
                         authorities
                 ));
 
@@ -96,13 +94,17 @@ public class AccountDAOImpl implements AccountDAO {
                         rs.getInt("id"),
                         rs.getString("email"),
                         rs.getString("password"),
-                        rs.getString("salt"),
                         null
                 ));
 
         List<String> authorities = getUserRoles(account.getId());
         account.setRoles(authorities);
         return account;
+    }
+
+    @Override
+    public void insertRoles(Integer accountId, Roles role) {
+        jdbcTemplate.update("INSERT INTO account_role (fk_account, fk_role) VALUES (?, ?)", accountId, role.getId());
     }
 
     private List<String> getUserRoles(int id) {

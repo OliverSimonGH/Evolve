@@ -50,6 +50,7 @@
                     <input name="question" class="form-control" id="question" />
                     <input name="id" type="hidden" th:value="${id}" />
                 </div>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                 <button type="submit" class="btn btn-next btn-fill btn-success btn-wd" id="question-add">Create Question</button>
             </form>
         </div>
@@ -74,6 +75,15 @@
 </div>
 
 <script type="application/javascript">
+    $(function () {
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+        $(document).ajaxSend(function (e, xhr, options) {
+            xhr.setRequestHeader(header, token);
+        });
+    });
+</script>
+<script type="application/javascript">
     $(document).ready(function () {
         var $cell = null;
         var $question_input = null;
@@ -91,7 +101,7 @@
         $(".question-remove").on("click", function () {
             $("#fullScreenUpdate").show();
             id = $(this).parent().data("id");
-            console.log();
+            console.log(id);
             $(".titleModal").html($(this).siblings("td:first-child").find(".q-question").val());
         });
 
@@ -105,15 +115,20 @@
                 "id": id
             };
 
+            console.log(id);
             $.ajax({
                 type: "POST",
-                url: "/question/delete",
+                url: "/assessor-dashboard/question/delete",
                 data: scoreForm,
                 encode: true
             }).done(function (data) { //what to do if the request is a success.
+                console.log("made it");
                 location.reload();
             }).fail(function (jqXHR, textStatus, errorThrown) { //and what to do if it fails
                 console.log("error");
+                console.log(jqXHR);
+                console.log(textStatus);
+                console.log(errorThrown);
             });
 
             e.preventDefault();
@@ -153,7 +168,7 @@
 
                     $.ajax({
                         type: "POST",
-                        url: "/question/update",
+                        url: "/assessor-dashboard/question/update",
                         data: scoreForm,
                         encode: true
                     }).done(function (data) { //what to do if the request is a success.
