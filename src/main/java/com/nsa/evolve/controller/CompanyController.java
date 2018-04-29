@@ -16,10 +16,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -32,16 +34,14 @@ import java.util.List;
 @RequestMapping("company-dashboard")
 public class CompanyController {
 
-    private PeopleTypeService peopleTypeService;
     private PeopleService peopleService;
     private CompanyService companyService;
     private ModuleService moduleService;
     private PDFReport pdfReport;
-    private  AssessmentService assessmentService;
+    private AssessmentService assessmentService;
 
     @Autowired
-    public CompanyController(PeopleTypeService peopleTypeService, PeopleService peopleService, CompanyService companyService, ModuleService moduleService, PDFReport pdfReport, AssessmentService assessmentService) {
-        this.peopleTypeService = peopleTypeService;
+    public CompanyController(PeopleService peopleService, CompanyService companyService, ModuleService moduleService, PDFReport pdfReport, AssessmentService assessmentService) {
         this.peopleService = peopleService;
         this.companyService = companyService;
         this.moduleService = moduleService;
@@ -50,9 +50,8 @@ public class CompanyController {
     }
 
     @RequestMapping(value = "/add-customer", method = RequestMethod.GET)
-    public String getCustomerForm(Model model){
+    public String getCustomerForm(Model model, CustomerForm customerForm){
         model.addAttribute("title", "Company Dashboard");
-        model.addAttribute("types", peopleTypeService.findAllPeopleType());
         return "webpage/add-customer";
     }
 
@@ -84,7 +83,10 @@ public class CompanyController {
     }
 
     @RequestMapping(value = "/add-customer", method = RequestMethod.POST)
-    public String postCustomerForm(@ModelAttribute CustomerForm customerForm) throws MessagingException, NoSuchAlgorithmException {
+    public String postCustomerForm(@ModelAttribute @Valid CustomerForm customerForm, BindingResult bindingResult) throws MessagingException, NoSuchAlgorithmException {
+        if (bindingResult.hasErrors())
+            return "webpage/add-customer";
+
         Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Company company = account.getCompany();
         peopleService.createPeopleAccount(customerForm.getFirstName(), customerForm.getLastName(), customerForm.getEmail(), company.getId(), customerForm.getType());

@@ -8,26 +8,39 @@
 
     <div class="row">
         <div class="offset-2"></div>
-        <form class="evolve-form col-md-8" id="add-customer" method="post">
+        <form class="evolve-form col-md-8" id="add-customer" method="post" th:object="${customerForm}" onsubmit="return onSubmit()">
             <div class="form-group text-center">
                 <h3>Add Customer</h3>
             </div>
             <div class="form-group">
-                <input class="form-control" type="text" name="firstName" placeholder="First Name"/>
+                <input class="form-control" type="text" name="firstName" placeholder="First Name" id="add-firstname"/>
+                <span class="help-block invalid-feedback" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
+                      style="display: block;"></span>
+                <span id="firstname-error" class="help-block invalid-feedback" style="display: block;"></span>
             </div>
 
             <div class="form-group group">
-                <input class="form-control" type="text" name="lastName" placeholder="Last Name"/>
+                <input class="form-control" type="text" name="lastName" placeholder="Last Name" id="add-lastname"/>
+                <span class="help-block invalid-feedback" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+                      style="display: block;"></span>
+                <span id="lastname-error" class="help-block invalid-feedback" style="display: block;"></span>
             </div>
 
             <div class="form-group group">
-                <input class="form-control" type="text" name="email" placeholder="Email"/>
+                <input class="form-control" type="text" name="email" placeholder="Email" id="add-email"/>
+                <span class="help-block invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                      style="display: block;"></span>
+                <span id="email-error" class="help-block invalid-feedback" style="display: block;"></span>
             </div>
 
             <div class="form-group">
                 <select class="form-control" name="type" id="type">
-                    <option th:each="type : ${types}" th:value="${type.id}" th:text="${type.type}" name="type">Client</option>
+                    <option name="type" value="1">Client</option>
+                    <option name="type" value="2">Employee</option>
+                    <option name="type" value="3">Manager</option>
                 </select>
+                <span class="help-block invalid-feedback" th:if="${#fields.hasErrors('type')}" th:errors="*{type}"
+                      style="display: block;"></span>
             </div>
 
             <div class="form-group">
@@ -37,6 +50,33 @@
         </form>
     </div>
 </div>
+
+<script type="application/javascript">
+    function onSubmit(e) {
+        /*<![CDATA[*/
+        var firstName = $('#add-firstname').val();
+        var lastName = $('#add-lastname').val();
+        var email = $('#add-email').val();
+        https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
+        var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if (!emailRegex.test(email) || firstName == "" || lastName == "") {
+            $('#firstname-error').html("");
+            $('#lastname-error').html("");
+            $('#email-error').html("");
+
+            if (!emailRegex.test(email)) $('#email-error').append("Email must be correct format<br/>");
+            if (firstName == "") $('#firstname-error').append("First name must contain 1 character<br/>");
+            if (lastName == "") $('#lastname-error').append("Last name must contain 1 character<br/>");
+
+            return false;
+        }
+
+        e.preventDefault();
+        return true;
+        /*]]>*/
+    }
+</script>
 
 </body>
 </html>

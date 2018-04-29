@@ -2,6 +2,7 @@ package com.nsa.evolve.form;
 
 import com.nsa.evolve.validator.EmailValid;
 import lombok.Data;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -12,13 +13,12 @@ import javax.validation.constraints.Size;
 @Data
 public class CustomerForm {
 
-    @Size(min = 2, message = "First name must contain at least 2 characters")
+    @Size(min = 1, message = "First name must contain at least 1 character")
     private String firstName;
 
-    @Size(min = 2, message = "First name must contain at least 2 characters")
+    @Size(min = 1, message = "Last name must contain at least 1 characters")
     private String lastName;
 
-    @NotNull
     @EmailValid
     private String email;
 
