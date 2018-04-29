@@ -124,12 +124,12 @@ public class CompanyController {
 
 //    https://stackoverflow.com/questions/12837907/what-to-return-if-spring-mvc-controller-method-doesnt-return-value
     @ResponseStatus(value = HttpStatus.OK)
-    @RequestMapping(value = "/uploadImages", method = RequestMethod.POST)
-    public void getImage(PDFForm form, HttpSession session){
+    @RequestMapping(value = "/upload-data", method = RequestMethod.POST)
+    public void getImage(@ModelAttribute PDFForm form, HttpSession session){
         session.setAttribute("form", form);
     }
 
-    @RequestMapping(value = "/api/test", method = RequestMethod.GET)
+    @RequestMapping(value = "/download/pdf", method = RequestMethod.GET)
     public ResponseEntity<byte[]> createDocument(HttpSession session){
         PDFForm form = (PDFForm) session.getAttribute("form");
         byte[] content = pdfReport.createReport(form);

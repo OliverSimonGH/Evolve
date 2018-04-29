@@ -4,6 +4,7 @@ import com.nsa.evolve.dao.AccountDAO;
 import com.nsa.evolve.dto.Account;
 import com.nsa.evolve.dto.AccountDetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

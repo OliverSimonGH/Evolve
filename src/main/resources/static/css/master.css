@@ -752,3 +752,7 @@ tr{
     margin-bottom: 20px;
 }
 
+.invalid{
+    color: red;
+}
+

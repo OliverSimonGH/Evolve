@@ -5,11 +5,10 @@ import com.nsa.evolve.form.ScoreForm;
 import com.nsa.evolve.service.QuestionService;
 import com.nsa.evolve.service.ScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -27,7 +26,7 @@ public class QuestionnaireController {
     }
 
     @RequestMapping(value = "/api/questionnaire/question", method = RequestMethod.POST)
-    public void insertScoreFromQuestion(ScoreForm scoreForm){
+    public void insertScoreFromQuestion(ScoreForm scoreForm, BindingResult bindingResult){
         scoreService.insertScoreForComment(scoreForm.getScore(), scoreForm.getComment(), scoreForm.getFkQuestion(), scoreForm.getFkModule(), scoreForm.getNum());
     }
 

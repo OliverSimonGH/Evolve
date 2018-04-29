@@ -1,6 +1,9 @@
 package com.nsa.evolve.controller;
 
-import com.nsa.evolve.dto.*;
+import com.nsa.evolve.dto.Account;
+import com.nsa.evolve.dto.AccountDetails;
+import com.nsa.evolve.dto.Score;
+import com.nsa.evolve.dto.ShortCompanyData;
 import com.nsa.evolve.form.AssessmentForm;
 import com.nsa.evolve.form.QuestionDeleteForm;
 import com.nsa.evolve.form.QuestionForm;
@@ -9,9 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -117,15 +123,22 @@ public class AssessorController {
     }
 
     @RequestMapping(value = "/questionnaire/{id}", method = RequestMethod.GET)
-    public String getQuestionnairePage(@PathVariable("id") Integer id, HttpSession session, Model model){
+    public String getQuestionnairePage(@ModelAttribute("question") String question, QuestionForm questionForm, @PathVariable("id") Integer id, HttpSession session, Model model){
         model.addAttribute("questions", questionService.findAllQuestionsByQuestionnaire(id));
         model.addAttribute("title", "Edit Questionnaire");
         model.addAttribute("id", id);
+        model.addAttribute("question", question);
         return "webpage/assessor-questionnaire";
     }
 
     @RequestMapping(value = "/question/add", method = RequestMethod.POST)
-    public String createQuestion(QuestionForm questionForm){
+    public String createQuestion(@ModelAttribute @Valid QuestionForm questionForm, BindingResult bindingResult, RedirectAttributes ra){
+        if (bindingResult.hasErrors()) {
+            ra.addFlashAttribute("question", "Question must contain 10 characters");
+            return "redirect:/assessor-dashboard/questionnaire/" + questionForm.getId();
+        }
+
+        System.out.println("2");
         questionService.createQuestion(questionForm.getQuestion(), questionForm.getId());
         return "redirect:/assessor-dashboard/questionnaire/" + questionForm.getId();
     }

@@ -6,6 +6,7 @@ import com.nsa.evolve.dto.Roles;
 import com.nsa.evolve.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -42,9 +43,10 @@ public class AccountServiceImpl implements AccountService{
     @Override
     public Boolean changePassword(String currentPassword, String newPassword, Integer accountId) {
         Account account = accountDAO.findAccountById(accountId);
+        String hashedNewPassword = passwordEncoder.encode(newPassword);
 
-        if (account.getPassword().equalsIgnoreCase(currentPassword)){
-            accountDAO.changePassword(newPassword, accountId);
+        if (passwordEncoder.matches(currentPassword, account.getPassword())){
+            accountDAO.changePassword(hashedNewPassword, accountId);
             return true;
         }
 

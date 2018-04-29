@@ -88,18 +88,22 @@ public class AccountDAOImpl implements AccountDAO {
     @Override
     @Transactional
     public Account findAccountByUsername(String email) {
-        Account account = jdbcTemplate.queryForObject("SELECT * FROM account WHERE email = ?",
-                new Object[]{email},
-                (rs, rowNum) -> new Account(
-                        rs.getInt("id"),
-                        rs.getString("email"),
-                        rs.getString("password"),
-                        null
-                ));
+        try {
+            Account account = jdbcTemplate.queryForObject("SELECT * FROM account WHERE email = ?",
+                    new Object[]{email},
+                    (rs, rowNum) -> new Account(
+                            rs.getInt("id"),
+                            rs.getString("email"),
+                            rs.getString("password"),
+                            null
+                    ));
 
-        List<String> authorities = getUserRoles(account.getId());
-        account.setRoles(authorities);
-        return account;
+            List<String> authorities = getUserRoles(account.getId());
+            account.setRoles(authorities);
+            return account;
+        } catch (EmptyResultDataAccessException e){
+            return null;
+        }
     }
 
     @Override
@@ -107,7 +111,8 @@ public class AccountDAOImpl implements AccountDAO {
         jdbcTemplate.update("INSERT INTO account_role (fk_account, fk_role) VALUES (?, ?)", accountId, role.getId());
     }
 
-    private List<String> getUserRoles(int id) {
+    @Override
+    public List<String> getUserRoles(int id) {
         return jdbcTemplate.queryForList("SELECT r.role FROM account a JOIN account_role ar ON a.id = ar.fk_account JOIN role r ON r.id = ar.fk_role WHERE a.id = ?",
                 new Object[]{id}, String.class);
     }

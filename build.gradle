@@ -39,6 +39,7 @@ dependencies {
 	compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4:2.1.2.RELEASE'
 //	compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity4', version: '3.0.2.RELEASE'
 	compile group: 'javax.mail', name: 'mail', version: '1.4'
+	compile 'org.simplejavamail:simple-java-mail:5.0.3'
 	compile('org.springframework.boot:spring-boot-devtools')
 	runtime('mysql:mysql-connector-java')
 	compileOnly('org.projectlombok:lombok')

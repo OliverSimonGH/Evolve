@@ -4,6 +4,7 @@ import com.nsa.evolve.validator.EmailValid;
 import com.nsa.evolve.validator.PassValid;
 import lombok.Data;
 
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**

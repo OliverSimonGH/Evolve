@@ -14,6 +14,7 @@ public class QuestionForm {
     @NotNull
     private Integer id;
 
+    @NotNull
     @Size(min = 10, message = "Questions must contain at least 10 characters")
     private String question;
 }
