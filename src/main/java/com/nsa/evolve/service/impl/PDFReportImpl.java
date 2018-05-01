@@ -6,6 +6,8 @@ import com.nsa.evolve.form.PDFForm;
 import com.nsa.evolve.service.CompanyService;
 import com.nsa.evolve.service.PDFReport;
 import org.apache.tomcat.util.codec.binary.Base64;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +22,10 @@ public class PDFReportImpl implements PDFReport {
     @Autowired
     private CompanyService companyService;
     private static final int WIDTH = 640, HEIGHT = 480;
+    private static Logger errorLog = LoggerFactory.getLogger("ErrorLog");
+    private static Logger infoLog = LoggerFactory.getLogger("ErrorLog");
 
-//    Creating a pdf File
+    //    Creating a pdf File
 //    https://www.youtube.com/watch?v=_Sy4D1aAzrU
     public byte[] createReport(PDFForm pdfForm){
         Document document = new Document(PageSize.A4);
@@ -82,9 +86,11 @@ public class PDFReportImpl implements PDFReport {
         }
 
         catch (Exception e){
+            errorLog.error("PDF document failed to be created");
             e.printStackTrace();
         }
 
+        infoLog.info("PDF document successfully created");
         return out.toByteArray();
     }
 

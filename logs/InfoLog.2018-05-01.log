@@ -1,0 +1,116 @@
+15:00:26.384 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Account with ID 2 successfully authenticated
+15:09:06.523 [https-jsse-nio-8181-exec-1] INFO  InfoLog- Account with ID 2 successfully authenticated
+15:11:10.585 [https-jsse-nio-8181-exec-18] INFO  InfoLog- Account with ID 85 successfully authenticated
+15:12:08.459 [https-jsse-nio-8181-exec-18] INFO  InfoLog- Account with ID 1 successfully authenticated
+16:27:37.103 [https-jsse-nio-8181-exec-18] INFO  InfoLog- Account with ID 1 successfully authenticated
+16:38:15.957 [https-jsse-nio-8181-exec-25] INFO  InfoLog- Account with ID 2 successfully authenticated
+16:38:54.259 [https-jsse-nio-8181-exec-22] INFO  InfoLog- Account with ID 85 successfully authenticated
+16:39:09.317 [https-jsse-nio-8181-exec-25] INFO  InfoLog- Account with ID 2 successfully authenticated
+16:40:48.526 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Account with ID 2 successfully authenticated
+16:45:05.769 [https-jsse-nio-8181-exec-13] INFO  InfoLog- Account with ID 1 successfully authenticated
+16:45:05.788 [https-jsse-nio-8181-exec-5] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+16:45:07.465 [https-jsse-nio-8181-exec-13] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessments
+16:45:10.188 [https-jsse-nio-8181-exec-15] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessment of ID 36
+16:45:15.455 [https-jsse-nio-8181-exec-10] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessment of ID 36
+16:45:16.344 [https-jsse-nio-8181-exec-10] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessments
+16:45:19.031 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+16:45:22.725 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessments
+16:45:27.051 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessment of ID 36
+16:46:26.666 [https-jsse-nio-8181-exec-1] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessment of ID 36
+16:46:28.584 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessments
+16:46:53.492 [https-jsse-nio-8181-exec-4] INFO  InfoLog- Account with ID 1 successfully authenticated
+16:46:53.500 [https-jsse-nio-8181-exec-13] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+16:46:55.668 [https-jsse-nio-8181-exec-8] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessments
+16:46:58.498 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessment of ID 36
+16:47:44.864 [https-jsse-nio-8181-exec-10] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessment of ID 36
+16:47:53.054 [https-jsse-nio-8181-exec-1] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessment of ID 36
+16:48:23.684 [https-jsse-nio-8181-exec-1] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessment of ID 36
+16:48:24.796 [https-jsse-nio-8181-exec-8] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessments
+16:48:34.957 [https-jsse-nio-8181-exec-13] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessment of ID 36
+17:04:30.826 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Account with ID 2 successfully authenticated
+17:11:07.471 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Account with ID 1 successfully authenticated
+17:11:07.479 [https-jsse-nio-8181-exec-16] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+17:11:08.466 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Assessor with account ID 1 visited the questionnaire of ID 1
+17:11:14.872 [https-jsse-nio-8181-exec-13] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+17:11:16.183 [https-jsse-nio-8181-exec-17] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessments
+17:11:23.668 [https-jsse-nio-8181-exec-1] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessment of ID 36
+17:11:56.698 [https-jsse-nio-8181-exec-13] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+17:11:58.039 [https-jsse-nio-8181-exec-4] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessments
+17:11:59.488 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessment of ID 36
+17:12:05.674 [https-jsse-nio-8181-exec-10] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessment of ID 36
+17:13:53.773 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+17:15:01.676 [https-jsse-nio-8181-exec-1] INFO  InfoLog- Account with ID 3 password updated from legacy to BCrypt
+17:16:13.037 [https-jsse-nio-8181-exec-8] INFO  InfoLog- Account with ID 1 successfully authenticated
+17:16:13.041 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+17:16:14.735 [https-jsse-nio-8181-exec-13] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 5 assessments
+17:16:58.739 [https-jsse-nio-8181-exec-14] INFO  InfoLog- Account with ID 2 successfully authenticated
+17:17:10.936 [https-jsse-nio-8181-exec-4] INFO  InfoLog- Account with ID 1 successfully authenticated
+17:17:10.942 [https-jsse-nio-8181-exec-16] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+17:29:53.430 [https-jsse-nio-8181-exec-10] INFO  InfoLog- Account with ID 2 successfully authenticated
+17:38:43.579 [https-jsse-nio-8181-exec-24] INFO  InfoLog- Account with ID 3 successfully authenticated
+17:46:16.256 [https-jsse-nio-8181-exec-9] INFO  InfoLog- Account with ID 3 successfully authenticated
+17:46:16.287 [https-jsse-nio-8181-exec-11] INFO  InfoLog- Customer with account ID 3 visited their dashboard
+17:46:38.612 [https-jsse-nio-8181-exec-6] INFO  InfoLog- Account with ID 3 successfully authenticated
+17:46:38.620 [https-jsse-nio-8181-exec-4] INFO  InfoLog- Customer with account ID 3 visited their dashboard
+17:47:15.820 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Account with ID 2 successfully authenticated
+17:47:15.840 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+17:47:26.727 [https-jsse-nio-8181-exec-6] INFO  InfoLog- Company with account ID 2 added an assessment
+17:47:27.988 [https-jsse-nio-8181-exec-11] INFO  InfoLog- Company with account ID 2 visited the create assessment mapping
+17:47:28.139 [https-jsse-nio-8181-exec-8] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+17:48:08.130 [https-jsse-nio-8181-exec-5] INFO  InfoLog- Account with ID 2 successfully authenticated
+17:48:08.142 [https-jsse-nio-8181-exec-6] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+17:48:10.895 [https-jsse-nio-8181-exec-6] INFO  InfoLog- Company with account ID 2 visited the change modules page
+17:48:12.361 [https-jsse-nio-8181-exec-7] INFO  InfoLog- Company with account ID 2 deleted the module with ID 77
+17:48:12.373 [https-jsse-nio-8181-exec-8] INFO  InfoLog- Company with account ID 2 visited the change modules page
+17:48:15.044 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Company with account ID 2 added the module with ID 3
+17:48:15.056 [https-jsse-nio-8181-exec-10] INFO  InfoLog- Company with account ID 2 visited the change modules page
+17:48:28.153 [https-jsse-nio-8181-exec-10] INFO  InfoLog- Company with account ID 2 deleted the module with ID 78
+17:48:28.163 [https-jsse-nio-8181-exec-7] INFO  InfoLog- Company with account ID 2 visited the change modules page
+17:48:57.797 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Account with ID 4 successfully authenticated
+17:49:11.286 [https-jsse-nio-8181-exec-4] INFO  InfoLog- Account with ID 4 successfully authenticated
+17:49:45.226 [https-jsse-nio-8181-exec-9] INFO  InfoLog- Account with ID 3 successfully authenticated
+17:49:45.234 [https-jsse-nio-8181-exec-4] INFO  InfoLog- Customer with account ID 3 visited their dashboard
+17:50:39.211 [https-jsse-nio-8181-exec-1] INFO  InfoLog- Account with ID 1 successfully authenticated
+17:50:39.225 [https-jsse-nio-8181-exec-11] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+17:50:44.256 [https-jsse-nio-8181-exec-10] INFO  InfoLog- Assessor with account ID 1 visited the questionnaire of ID 1
+17:50:48.258 [https-jsse-nio-8181-exec-8] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+17:50:49.618 [https-jsse-nio-8181-exec-5] INFO  InfoLog- Assessor with account ID 1 visited the company of ID 1 assessments
+17:50:51.311 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+17:52:22.856 [https-jsse-nio-8181-exec-1] INFO  InfoLog- Account with ID 2 successfully authenticated
+17:52:22.864 [https-jsse-nio-8181-exec-8] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+17:52:26.047 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Company with account ID 2 visited the add customer page
+17:52:32.028 [https-jsse-nio-8181-exec-5] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+17:52:33.659 [https-jsse-nio-8181-exec-11] INFO  InfoLog- Company with account ID 2 visited the change modules page
+17:52:35.550 [https-jsse-nio-8181-exec-6] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+17:52:36.622 [https-jsse-nio-8181-exec-1] INFO  InfoLog- Company with account ID 2 added an assessment
+17:52:38.439 [https-jsse-nio-8181-exec-8] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+17:52:51.492 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Company with account ID 2 added an assessment
+17:52:52.777 [https-jsse-nio-8181-exec-9] INFO  InfoLog- Company with account ID 2 visited the create assessment mapping
+17:52:52.842 [https-jsse-nio-8181-exec-4] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+17:52:56.440 [https-jsse-nio-8181-exec-10] INFO  InfoLog- Company with account ID 2 visited the change modules page
+17:52:58.675 [https-jsse-nio-8181-exec-6] INFO  InfoLog- Company with account ID 2 deleted the module with ID 77
+17:52:58.694 [https-jsse-nio-8181-exec-11] INFO  InfoLog- Company with account ID 2 visited the change modules page
+17:53:00.049 [https-jsse-nio-8181-exec-5] INFO  InfoLog- Company with account ID 2 visited the change modules page
+17:53:05.107 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Company with account ID 2 added the module with ID 3
+17:53:05.116 [https-jsse-nio-8181-exec-9] INFO  InfoLog- Company with account ID 2 visited the change modules page
+17:55:06.533 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Account with ID 2 successfully authenticated
+17:55:06.541 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+17:55:16.373 [https-jsse-nio-8181-exec-4] INFO  InfoLog- Company with account ID 2 download a pdf with their data
+17:55:29.779 [https-jsse-nio-8181-exec-6] INFO  InfoLog- Company with account ID 2 added an assessment
+17:56:47.246 [https-jsse-nio-8181-exec-6] INFO  InfoLog- Company account with ID 86 has been created
+17:56:55.710 [https-jsse-nio-8181-exec-11] INFO  InfoLog- Account with ID 86 successfully authenticated
+17:56:55.718 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Company with account ID 86 visited the their dashboard
+17:56:59.194 [https-jsse-nio-8181-exec-10] INFO  InfoLog- Company with account ID 86 visited the their dashboard
+17:57:10.043 [https-jsse-nio-8181-exec-5] INFO  InfoLog- Company with account ID 86 visited the add customer page
+17:57:23.552 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Company with account ID 86 visited the their dashboard
+17:57:25.282 [https-jsse-nio-8181-exec-5] INFO  InfoLog- Company with account ID 86 visited the change modules page
+17:57:27.339 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Company with account ID 86 deleted the module with ID 96
+17:57:27.360 [https-jsse-nio-8181-exec-8] INFO  InfoLog- Company with account ID 86 visited the change modules page
+17:57:51.591 [https-jsse-nio-8181-exec-5] INFO  InfoLog- Account with ID 4 successfully authenticated
+18:11:50.387 [https-jsse-nio-8181-exec-5] INFO  InfoLog- Account ID 2 visited the settings page
+18:21:32.017 [https-jsse-nio-8181-exec-13] INFO  InfoLog- Account with ID 4 successfully authenticated
+18:21:32.044 [https-jsse-nio-8181-exec-4] INFO  InfoLog- Company with account ID 4 visited the their dashboard
+18:22:42.337 [https-jsse-nio-8181-exec-16] INFO  InfoLog- Account with ID 4 successfully authenticated
+18:22:42.345 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Company with account ID 4 visited the their dashboard
+18:34:38.026 [https-jsse-nio-8181-exec-6] INFO  InfoLog- Account with ID 2 successfully authenticated
+18:34:38.054 [https-jsse-nio-8181-exec-10] INFO  InfoLog- Company with account ID 2 visited the their dashboard

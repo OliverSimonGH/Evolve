@@ -5,6 +5,8 @@ import com.nsa.evolve.dao.ModuleDAO;
 import com.nsa.evolve.dto.*;
 import com.nsa.evolve.service.AccountService;
 import com.nsa.evolve.service.CompanyService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +21,7 @@ import java.util.List;
 @Service
 public class CompanyServiceImpl implements CompanyService {
 
+    private static Logger infoLog = LoggerFactory.getLogger("InfoLog");
     private CompanyDAO companyDAO;
     private AccountService accountService;
     private ModuleDAO moduleDAO;
@@ -48,9 +51,11 @@ public class CompanyServiceImpl implements CompanyService {
             System.out.println(account.getId());
             accountService.insertRoles(account.getId(), Roles.ROLE_COMPANY);
             companyDAO.createCompanyAccount(name, account.getId());
+            infoLog.info("Company account with ID {} has been created", account.getId());
             return true;
         }
 
+        infoLog.info("Company account has failed to be created");
         return false;
     }
 
@@ -67,29 +72,34 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public List<ModuleReturnData> findModuleScores(int id) {
-        List<Integer> notTakenReturnList = new ArrayList<>();
-        notTakenReturnList.add(0);
-        notTakenReturnList.add(0);
-        notTakenReturnList.add(0);
-        notTakenReturnList.add(0);
-        notTakenReturnList.add(0);
-        List<Module> moduleList = moduleDAO.findAllModulesByCompany(id);
+        try {
+            List<Integer> notTakenReturnList = new ArrayList<>();
+            notTakenReturnList.add(0);
+            notTakenReturnList.add(0);
+            notTakenReturnList.add(0);
+            notTakenReturnList.add(0);
+            notTakenReturnList.add(0);
+            List<Module> moduleList = moduleDAO.findAllModulesByCompany(id);
 
-        List<ModuleReturnData> ModulesReturnDataList = new ArrayList<>();
+            List<ModuleReturnData> ModulesReturnDataList = new ArrayList<>();
 
 
 
-        for(Module mod : moduleList){
-            String modName = moduleDAO.getModuleRealName(mod.getId());
-            ModulesReturnDataList.add(new ModuleReturnData(modName, companyDAO.getModuleReturnData((long) mod.getId(), (long) id)));
+            for(Module mod : moduleList){
+                String modName = moduleDAO.getModuleRealName(mod.getId());
+                ModulesReturnDataList.add(new ModuleReturnData(modName, companyDAO.getModuleReturnData((long) mod.getId(), (long) id)));
+            }
+
+            while (ModulesReturnDataList.size() <= 5){
+                ModulesReturnDataList.add(new ModuleReturnData("Module Not Taken", notTakenReturnList));
+            }
+
+
+            return ModulesReturnDataList;
+        } catch (NullPointerException e){
+            throw new NullPointerException("Null pointer exception");
         }
 
-        while (ModulesReturnDataList.size() <= 5){
-            ModulesReturnDataList.add(new ModuleReturnData("Module Not Taken", notTakenReturnList));
-        }
-
-
-        return ModulesReturnDataList;
     }
 
     @Override

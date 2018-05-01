@@ -1,6 +1,8 @@
 package com.nsa.evolve.service.impl;
 
 import com.nsa.evolve.service.MailService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.mail.*;
@@ -15,6 +17,7 @@ import java.util.Properties;
 @Service
 public class MailServiceImpl implements MailService {
 
+    private static Logger errorLog = LoggerFactory.getLogger("ErrorLog");
     private final String EMAIL_USERNAME = "evolve.register@gmail.com";
     private final String EMAIL_PASSWORD = "evolvepassword";
     private final String EMAIL_HOST = "smtp.gmail.com";
@@ -52,6 +55,7 @@ public class MailServiceImpl implements MailService {
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
         } catch (Exception e){
+            errorLog.error("Email failed to send\n" + e.getMessage());
             throw new RuntimeException(e);
         }
 

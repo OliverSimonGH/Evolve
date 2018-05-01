@@ -4,6 +4,8 @@ import com.nsa.evolve.dao.AccountDAO;
 import com.nsa.evolve.dto.Account;
 import com.nsa.evolve.dto.Roles;
 import com.nsa.evolve.service.AccountService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -21,6 +23,7 @@ public class AccountServiceImpl implements AccountService{
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+    private static Logger infoLog = LoggerFactory.getLogger("InfoLog");
 
     @Override
     public Account findByEmail(String email) {
@@ -47,9 +50,11 @@ public class AccountServiceImpl implements AccountService{
 
         if (passwordEncoder.matches(currentPassword, account.getPassword())){
             accountDAO.changePassword(hashedNewPassword, accountId);
+            infoLog.info("Account with ID successfully changed their password");
             return true;
         }
 
+        infoLog.info("Account with ID failed to change their password");
         return false;
     }
 

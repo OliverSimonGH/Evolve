@@ -8,6 +8,8 @@ import com.nsa.evolve.dto.Roles;
 import com.nsa.evolve.service.AccountService;
 import com.nsa.evolve.service.MailService;
 import com.nsa.evolve.service.PeopleService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +23,7 @@ import java.security.NoSuchAlgorithmException;
 @Service
 public class PeopleServiceImpl implements PeopleService {
 
+    private static Logger infoLog = LoggerFactory.getLogger("InfoLog");
     private PeopleDAO peopleDAO;
     private AccountService accountService;
     private MailService mailService;
@@ -55,9 +58,12 @@ public class PeopleServiceImpl implements PeopleService {
             Account account = accountService.findByEmail(email);
             peopleDAO.createPeopleAccount(first_name, last_name, fkCompany, account.getId(), fkType);
             accountService.insertRoles(account.getId(), Roles.ROLE_CUSTOMER);
+            infoLog.info("People account with ID {} has been created by company with ID {}", account.getId(), fkCompany);
             mailService.send(email, "Account registered", "username: " + email + ", password: " + password);
             return true;
         }
+
+        infoLog.info("People account has failed to be created");
         return false;
     }
 

@@ -4,6 +4,8 @@ import com.nsa.evolve.dto.Account;
 import com.nsa.evolve.dto.AccountDetails;
 import com.nsa.evolve.form.PasswordForm;
 import com.nsa.evolve.service.AccountService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -24,10 +26,13 @@ public class SettingsController {
 
     @Autowired
     private AccountService accountService;
+    private static Logger infoLog = LoggerFactory.getLogger("InfoLog");
 
     @RequestMapping(value = "/settings", method = RequestMethod.GET)
     public String getSettingsPage(PasswordForm passwordForm, Model model, @ModelAttribute("error") String error, @ModelAttribute("success") String success, @ModelAttribute("password") String password){
         Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        infoLog.info("Account ID {} visited the settings page", account.getId());
+
 
         model.addAttribute("error", error);
         model.addAttribute("success", success);
@@ -42,6 +47,7 @@ public class SettingsController {
         Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         if (bindingResult.hasErrors()) {
+            infoLog.info("Account ID {} failed to update their password (regex)", account.getId());
             return "webpage/settings";
         }
 

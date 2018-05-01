@@ -8,6 +8,8 @@ import com.nsa.evolve.form.CustomerForm;
 import com.nsa.evolve.form.ModuleForm;
 import com.nsa.evolve.form.PDFForm;
 import com.nsa.evolve.service.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -39,6 +41,7 @@ public class CompanyController {
     private ModuleService moduleService;
     private PDFReport pdfReport;
     private AssessmentService assessmentService;
+    private static Logger infoLog = LoggerFactory.getLogger("InfoLog");
 
     @Autowired
     public CompanyController(PeopleService peopleService, CompanyService companyService, ModuleService moduleService, PDFReport pdfReport, AssessmentService assessmentService) {
@@ -51,6 +54,8 @@ public class CompanyController {
 
     @RequestMapping(value = "/add-customer", method = RequestMethod.GET)
     public String getCustomerForm(Model model, CustomerForm customerForm){
+        Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        infoLog.info("Company with account ID {} visited the add customer page", account.getId());
         model.addAttribute("title", "Company Dashboard");
         return "webpage/add-customer";
     }
@@ -59,6 +64,7 @@ public class CompanyController {
     public String getModulePage(Model model){
         Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Company company = account.getCompany();
+        infoLog.info("Company with account ID {} visited the change modules page", account.getId());
 
         model.addAttribute("title", "Select Modules");
         model.addAttribute("modules", moduleService.findAllModules(company.getId()));
@@ -71,6 +77,8 @@ public class CompanyController {
         Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Company company = account.getCompany();
         moduleService.deleteModuleById(moduleForm.getId(), company.getId());
+        infoLog.info("Company with account ID {} deleted the module with ID {}", account.getId(), moduleForm.getId());
+
         return "redirect:/company-dashboard/modules";
     }
 
@@ -79,16 +87,20 @@ public class CompanyController {
         Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Company company = account.getCompany();
         moduleService.addModule(moduleForm.getId(), company.getId());
+        infoLog.info("Company with account ID {} added the module with ID {}", account.getId(), moduleForm.getId());
         return "redirect:/company-dashboard/modules";
     }
 
     @RequestMapping(value = "/add-customer", method = RequestMethod.POST)
     public String postCustomerForm(@ModelAttribute @Valid CustomerForm customerForm, BindingResult bindingResult) throws MessagingException, NoSuchAlgorithmException {
-        if (bindingResult.hasErrors())
-            return "webpage/add-customer";
-
         Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Company company = account.getCompany();
+
+        if (bindingResult.hasErrors()) {
+            infoLog.info("Company with account ID {} failed to add a customer (regex)", account.getId());
+            return "webpage/add-customer";
+        }
+
         peopleService.createPeopleAccount(customerForm.getFirstName(), customerForm.getLastName(), customerForm.getEmail(), company.getId(), customerForm.getType());
         return "redirect:/company-dashboard/add-customer";
     }
@@ -97,6 +109,7 @@ public class CompanyController {
     public String getCompanyDashboardData(Model model){
         Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Company company = account.getCompany();
+        infoLog.info("Company with account ID {} visited the their dashboard", account.getId());
 
         List<ModuleReturnData> ModuleReturnData = companyService.findModuleScores(company.getId());
         List<Integer> qviScores = companyService.findQviScores(company.getId());
@@ -112,6 +125,9 @@ public class CompanyController {
 
     @RequestMapping(value = "/add-assessment", method = RequestMethod.GET)
     public String addAssessment(Model model){
+        Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        infoLog.info("Company with account ID {} added an assessment", account.getId());
+
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDate localDate = LocalDate.now();
         model.addAttribute("Date",localDate);
@@ -133,6 +149,9 @@ public class CompanyController {
 
     @RequestMapping(value = "/download/pdf", method = RequestMethod.GET)
     public ResponseEntity<byte[]> createDocument(HttpSession session){
+        Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        infoLog.info("Company with account ID {} download a pdf with their data", account.getId());
+
         PDFForm form = (PDFForm) session.getAttribute("form");
         byte[] content = pdfReport.createReport(form);
 
@@ -148,6 +167,7 @@ public class CompanyController {
     @RequestMapping(value = "/create-assessment", method = RequestMethod.GET)
     public String createAssessment(Model model){
         Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
         model.addAttribute("account", account);
         assessmentService.createAssessment(account.getCompany().getId());
         return "redirect:/company-dashboard";

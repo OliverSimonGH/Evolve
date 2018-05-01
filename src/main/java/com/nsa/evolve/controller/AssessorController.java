@@ -8,6 +8,8 @@ import com.nsa.evolve.form.AssessmentForm;
 import com.nsa.evolve.form.QuestionDeleteForm;
 import com.nsa.evolve.form.QuestionForm;
 import com.nsa.evolve.service.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -31,6 +33,7 @@ public class AssessorController {
     private ScoreService scoreService;
     private AssessorService assessorService;
     private AssessmentService assessmentService;
+    private static Logger infoLog = LoggerFactory.getLogger("InfoLog");
 
     @Autowired
     public AssessorController(ResultService resultService, CompanyService companyService, QuestionnaireService questionnaireService, QuestionService questionService, ScoreService scoreService, AssessorService assessorService, AssessmentService assessmentService) {
@@ -52,6 +55,7 @@ public class AssessorController {
     @RequestMapping("")
     public String getAssessorDashboard(Model model) {
         Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        infoLog.info("Assessor with account ID {} visited the assessor dashboard", account.getId());
         model.addAttribute("companies", companyService.findCompanyByAssessorId(account.getAssessor().getId()));
         model.addAttribute("questionnaires", questionnaireService.findAllQuestionnaires());
         model.addAttribute("title", "AssessorDashboard");
@@ -60,6 +64,8 @@ public class AssessorController {
 
     @RequestMapping("/{id}/{assessment}")
     public String getCompanyModules(@PathVariable("id") Integer id, @PathVariable("assessment") Integer assessment, HttpSession session, Model model) {
+        Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        infoLog.info("Assessor with account ID {} visited the company of ID {} assessment of ID {}", account.getId(), id, assessment);
         model.addAttribute("company", companyService.findCompanyNameById(id));
         model.addAttribute("modules", assessmentService.getRMADataByAssessment(assessment));
         model.addAttribute("assessment", assessment);
@@ -69,20 +75,26 @@ public class AssessorController {
 
     @RequestMapping("/{id}")
     public String getCompanyAssessments(@PathVariable("id") Integer id, HttpSession session, Model model) {
+        Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("company", companyService.findCompanyNameById(id));
         model.addAttribute("assessments", assessmentService.getAllByCompanyId(id));
         model.addAttribute("title", "Company Assessments");
+        infoLog.info("Assessor with account ID {} visited the company of ID {} assessments", account.getId(), id);
+
         return "webpage/assessor_company_assessment";
     }
 
     @RequestMapping(value = "/{id}/{assessment}/questions", method = RequestMethod.GET)
     public String generateQuestionnaire(@PathVariable("id") Integer id, @PathVariable("assessment") Integer assessment, @RequestParam("q") Integer q, @RequestParam("f") Integer fk, @RequestParam("r") Integer r, Model model) {
+        Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("company", companyService.findCompanyNameById(id));
         model.addAttribute("questions", questionService.findAllQuestionsByQuestionnaire(q));
         model.addAttribute("title", "Verify Questionnaire");
         model.addAttribute("assessment", assessment);
         model.addAttribute("module", fk);
         model.addAttribute("result", r);
+        infoLog.info("Assessor with account ID {} visited the company of ID {}, assessment of ID {}, Module of ID {} questions and answers", account.getId(), id, assessment, fk);
+
         return "webpage/assessor_approve";
     }
 
@@ -111,8 +123,7 @@ public class AssessorController {
         model.addAttribute("AssessorName",assessorName);
         model.addAttribute("IndustryAverage", industryAverage );
         model.addAttribute("AssessorCompanies", assessorCompanies );
-        System.out.println("lalal you will never get this");
-
+        infoLog.info("Assessor with account ID {} is comparing companies", account.getId());
         return "webpage/assessor-compare";
     }
 
@@ -124,10 +135,12 @@ public class AssessorController {
 
     @RequestMapping(value = "/questionnaire/{id}", method = RequestMethod.GET)
     public String getQuestionnairePage(@ModelAttribute("question") String question, QuestionForm questionForm, @PathVariable("id") Integer id, HttpSession session, Model model){
+        Account account = (AccountDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("questions", questionService.findAllQuestionsByQuestionnaire(id));
         model.addAttribute("title", "Edit Questionnaire");
         model.addAttribute("id", id);
         model.addAttribute("question", question);
+        infoLog.info("Assessor with account ID {} visited the questionnaire of ID {}", account.getId(), id);
         return "webpage/assessor-questionnaire";
     }
 
@@ -138,7 +151,6 @@ public class AssessorController {
             return "redirect:/assessor-dashboard/questionnaire/" + questionForm.getId();
         }
 
-        System.out.println("2");
         questionService.createQuestion(questionForm.getQuestion(), questionForm.getId());
         return "redirect:/assessor-dashboard/questionnaire/" + questionForm.getId();
     }

@@ -22,13 +22,17 @@ public class CompanyDAOImpl implements CompanyDAO {
 
     @Override
     public Company findCompanyByAccount(Integer foreignKey) {
-        return jdbcTemplate.queryForObject("SELECT * FROM company WHERE fk_account = ?",
-                new Object[]{foreignKey},
-                (rs, rowNum) -> new Company(
-                        rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getInt("fk_account")
-                ));
+        try {
+            return jdbcTemplate.queryForObject("SELECT * FROM company WHERE fk_account = ?",
+                    new Object[]{foreignKey},
+                    (rs, rowNum) -> new Company(
+                            rs.getInt("id"),
+                            rs.getString("name"),
+                            rs.getInt("fk_account")
+                    ));
+        } catch (EmptyResultDataAccessException e){
+            return null;
+        }
     }
 
     @Override

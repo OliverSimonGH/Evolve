@@ -7,6 +7,8 @@ import com.nsa.evolve.dto.Roles;
 import com.nsa.evolve.dto.ShortCompanyData;
 import com.nsa.evolve.service.AccountService;
 import com.nsa.evolve.service.AssessorService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +22,7 @@ import java.util.List;
 @Service
 public class AssessorServiceImpl implements AssessorService {
 
+    private static Logger infoLog = LoggerFactory.getLogger("InfoLog");
     private AssessorDAO assessorDAO;
     private AccountService accountService;
 
@@ -47,9 +50,11 @@ public class AssessorServiceImpl implements AssessorService {
             Account account = accountService.findByEmail(email);
             accountService.insertRoles(account.getId(), Roles.ROLE_ASSESSOR);
             assessorDAO.createAssessorAccount(first_name, account.getId());
+            infoLog.info("Assessor account with ID {} has been created", account.getId());
             return true;
         }
 
+        infoLog.info("Assessor account has failed to be created");
         return false;
     }
     @Override

@@ -40,8 +40,7 @@ public class AuthProvider implements AuthenticationProvider {
 
         AccountDetails accountDetails = (AccountDetails) accountDetailsService.loadUserByUsername(username);
 
-        System.out.println(accountDetails);
-//        If the account exists
+        //  If the account exists
         if (accountDetails != null){
 
 //            If password is not hashed
