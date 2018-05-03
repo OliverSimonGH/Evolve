@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments :: head"></head>
+<body>
+<nav th:replace="fragments :: navigation"></nav>
+
+
+<div class="user-dashboard">
+    <h3 class="company" th:text="${company.name}">Company Name</h3>
+    <div class="row">
+        <div class="offset-1"></div>
+        <div class="col-md-2" th:each="module : ${modules}">
+            <div class="module-circle" th:id="@{'circle' + ${module.module}}" th:attr="data-id=${module.fkModule}">
+                <a th:href="@{'/assessor-dashboard/' + ${company.id} + '/' + ${assessment} + '/questions?q=' + ${module.module} + '&amp;f=' + ${module.fkModule} + '&amp;r=' + ${assessment}}"
+                   class="circle-link">
+                    <h3 th:text="${module.name}"></h3>
+                    <!--<p class="num"></p>-->
+                </a>
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-danger" th:href="@{'/assessor-dashboard/' + ${company.id}}">Back</a>
+</div>
+</body>
+</html>

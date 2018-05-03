@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments :: head"></head>
+<body>
+<nav th:replace="fragments :: navigation"></nav>
+<div class="row col-md-12 margin-top">
+
+    <div class="offset-1"></div>
+    <span class="help-block invalid-feedback" id="question-error-1" style="display: block;"></span>
+    <span class="help-block invalid-feedback" th:text="${question}" style="display: block;"></span>
+    <div class="col-md-10">
+        <table class="table table-light table-hover table-question ">
+            <thead class="thead-dark">
+            <tr>
+                <th>Question</th>
+                <th>Edit</th>
+                <th>Remove</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr id="table-question-add">
+                <td colspan="3"><i class="fa fa-plus-circle" aria-hidden="true"></i>ADD QUESTION</td>
+            </tr>
+            <tr th:each="question : ${questions}" th:attr="data-id=${question.id}">
+                <td data-toggle="off">
+                    <form method="post">
+                        <input class="q-question" type="text" th:value="${question.question}" readonly="readonly"/>
+                        <input class="q-id" type="hidden" th:value="${question.id}"/>
+                    </form>
+                </td>
+                <td class="question-edit"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</td>
+                <td class="question-remove"><i class="fa fa-trash" aria-hidden="true"></i>Remove</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="fullScreenModal" id="add-question">
+    <a id="modal-close" class="closebtn">×</a>
+    <div class="modalTitle">
+        <p class="titleModal">Create a question</p>
+    </div>
+    <div class="modalSubtitle">
+        <p>Please enter a question which you would like to add to this questionnaire</p>
+    </div>
+    <div class="formWrapper">
+        <div class="formContainer">
+            <form method="post" class="text-center" action="/assessor-dashboard/question/add"
+                  th:object="${questionForm}" onsubmit="return onSubmit()">
+                <div class="form-group">
+                    <label for="question">Question</label>
+                    <span class="help-block invalid-feedback" id="question-error" style="display: block;"></span>
+                    <input name="question" class="form-control" id="question"/>
+                    <input name="id" type="hidden" th:value="${id}"/>
+                </div>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                <button type="submit" class="btn btn-next btn-fill btn-success btn-wd" id="question-add">Create
+                    Question
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="fullScreenModal" id="fullScreenUpdate">
+    <div class="modalTitle" style="margin-top: 5%">
+        <p class="titleModal"></p>
+    </div>
+    <div class="modalSubtitle">
+        <p>Are you sure you want to delete this question?</p>
+    </div>
+    <div class="formWrapper">
+        <div class="formContainer">
+            <form method="post" class="text-center" action="#">
+                <button type="button" id="cancel-btn" class="btn btn-next btn-fill btn-primary btn-wd">No</button>
+                <button type="button" class="btn btn-next btn-fill btn-danger btn-wd" id="delete-submit">Yes</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    function onSubmit(e) {
+        /*<![CDATA[*/
+        var question = $('#question').val();
+
+        if (question.length < 10) {
+            $('#question-error').html("");
+            $('#question-error').append("Question must contain 10 characters");
+            return false;
+        }
+
+        e.preventDefault();
+        return true;
+        /*]]>*/
+    }
+
+</script>
+
+<script type="application/javascript">
+    $(function () {
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+        $(document).ajaxSend(function (e, xhr, options) {
+            xhr.setRequestHeader(header, token);
+        });
+    });
+</script>
+<script type="application/javascript">
+    $(document).ready(function () {
+        var $cell = null;
+        var $question_input = null;
+        var id = null;
+        var question = null;
+
+        $("#table-question-add").on("click", function () {
+            $("#add-question").show();
+        });
+
+        $("#modal-close").on("click", function () {
+            $("#add-question").hide();
+        });
+
+        $(".question-remove").on("click", function () {
+            $("#fullScreenUpdate").show();
+            id = $(this).parent().data("id");
+            console.log(id);
+            $(".titleModal").html($(this).siblings("td:first-child").find(".q-question").val());
+        });
+
+        $("#cancel-btn").on("click", function () {
+            $("#fullScreenUpdate").hide();
+        });
+
+        $('#delete-submit').on('click', function (e) {
+
+            var scoreForm = {
+                "id": id
+            };
+
+            console.log(id);
+            $.ajax({
+                type: "POST",
+                url: "/assessor-dashboard/question/delete",
+                data: scoreForm,
+                encode: true
+            }).done(function (data) { //what to do if the request is a success.
+                console.log("made it");
+                location.reload();
+            }).fail(function (jqXHR, textStatus, errorThrown) { //and what to do if it fails
+                console.log("error");
+                console.log(jqXHR);
+                console.log(textStatus);
+                console.log(errorThrown);
+            });
+
+            e.preventDefault();
+
+        });
+
+        $('.table-question tr .question-edit').on('click', function () {
+            $cell = $(this).siblings('td:first-child');
+            $question_input = $cell.find('input');
+
+
+            if ($($cell).attr("data-toggle") == "off") {
+                $cell.attr("data-toggle", "on");
+                $(this).html('<i class="fa fa-pencil" aria-hidden="true"></i> Editing');
+                $(this).css("color", "green");
+                $question_input.removeAttr('readonly');
+                $question_input.css("color", "green");
+            }
+
+            else if ($($cell).attr("data-toggle") == "on") {
+                $cell.attr("data-toggle", "off");
+                $(this).html('<i class="fa fa-pencil" aria-hidden="true"></i> Edit');
+                $(this).css("color", "black");
+                $question_input.attr("readonly", "readonly");
+                $question_input.css("color", "black");
+            }
+        });
+
+        $(document).keypress(function (e) {
+            if (e.which == 13) {
+                if ($($cell).attr("data-toggle") == 'on') {
+
+                    var scoreForm = {
+                        "id": $cell.find('.q-id').val(),
+                        "question": $cell.find('.q-question').val()
+                    };
+
+                    /*<![CDATA[*/
+                    if ($cell.find('.q-question').val().length < 10){
+                        $('#question-error-1').html("");
+                        $('#question-error-1').append("Question must contain 10 characters");
+                        return false;
+                    }
+                    /*]]>*/
+
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/assessor-dashboard/question/update",
+                        data: scoreForm,
+                        encode: true
+                    }).done(function (data) { //what to do if the request is a success.
+                        $cell.attr("data-toggle", "off");
+                        $('.table-question tr .question-edit').html('<i class="fa fa-pencil" aria-hidden="true"></i> Edit');
+                        $('.table-question tr .question-edit').css("color", "black");
+                        $question_input.css("color", "black");
+                        $question_input.attr("readonly", "readonly");
+                        $('#question-error-1').html("");
+                    }).fail(function (jqXHR, textStatus, errorThrown) { //and what to do if it fails
+                        console.log("error");
+                    });
+
+                    e.preventDefault();
+                    return true;
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

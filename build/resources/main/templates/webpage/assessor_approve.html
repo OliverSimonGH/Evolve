@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments :: head"></head>
+<body>
+<nav th:replace="fragments :: navigation"></nav>
+
+<div class="container">
+    <table class="table table-dark mark" th:each="question : ${questions}" th:attr="data-id=${question.id}">
+        <thead>
+        <tr>
+            <th th:text="${question.question}" colspan="2"></th>
+        </tr>
+        <tr>
+            <th>Score</th>
+            <th>Comment</th>
+        </tr>
+        </thead>
+        <tbody th:id="${question.id}">
+        </tbody>
+    </table>
+    <div class="right">
+        <a class="btn btn-danger" th:href="@{'/assessor-dashboard/' + ${company.id} + '/' + ${assessment}}">Go Back</a>
+    </div>
+</div>
+
+
+<script th:inline="javascript">
+    $(document).ready(function () {
+        var module = [[${module}]];
+        var result = [[${result}]];
+        console.log(result);
+
+        $('table').each(function () {
+            var table = $(this);
+            var questionId = $(this).data("id");
+
+            /*<![CDATA[*/
+
+            $.getJSON("/assessor-dashboard/comments", {module: module, question: questionId, result: result},
+                function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var score = data[i].score;
+                        var comment = data[i].comment == null ? "No Comment" : data[i].comment;
+                        
+                        $(table).find("tbody").append("<tr><td>" + score + "</td><td>" + comment + "</td></tr>");
+                    }
+                }
+            );
+
+            /*]]>*/
+        })
+    })
+
+
+</script>
+</body>
+</html>

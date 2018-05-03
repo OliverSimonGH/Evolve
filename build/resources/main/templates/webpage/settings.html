@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments :: head"></head>
+<body>
+<nav th:replace="fragments :: navigation"></nav>
+
+<div class="container">
+
+    <div class="col-md-12 text-center" id="settings-title">
+        <h1>Settings</h1>
+    </div>
+
+    <div class="row">
+        <div class="offset-3"></div>
+        <form th:object="${passwordForm}" th:action="@{/account/updatePassword}" method="post" action="#"
+              class="evolve-form col-md-6" id="add-customer" onsubmit="return onSubmit()">
+            <input type="hidden" name="_method" value="put"/>
+            <div class="form-group">
+                <label for="current">Current password</label>
+                <span class="help-block valid-feedback" th:if="${success != null}" th:text="${success}"
+                      style="display: block;"></span>
+                <input class="form-control" type="text" name="current" id="current"
+                       placeholder="Current password"/>
+                <span class="help-block invalid-feedback" th:if="${error != null}" th:text="${error}"
+                      style="display: block;"></span>
+                <span id="current-error" class="help-block invalid-feedback" style="display: block;"></span>
+            </div>
+            <div class="form-group">
+                <label for="latest">New password</label>
+                <input class="form-control" type="password" name="latest" id="latest" placeholder="New password"/>
+                <span class="help-block invalid-feedback" th:if="${#fields.hasErrors('latest')}"
+                      th:errors="*{latest}" style="display: block;"></span>
+                <span id="latest-error" class="help-block invalid-feedback" style="display: block;"></span>
+            </div>
+            <button type="submit" class="btn btn-primary form-control" value="update">Update Password</button>
+
+        </form>
+    </div>
+
+</div>
+
+<script type="application/javascript">
+    function onSubmit(e) {
+        var input = $('#latest').val();
+        var current = $('#current').val();
+        var regex = new RegExp("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}");
+
+        if (!input.match(regex) || current == "") {
+            $('#latest-error').html("");
+            $('#current-error').html("");
+
+            if (!input.match("(?=.*[a-z])")) $('#latest-error').append("Password must contain 1 lower case character<br/>");
+            if (!input.match("(?=.*[A-Z])")) $('#latest-error').append("Password must contain 1 upper case character<br/>");
+            if (!input.match("(?=.*[0-9])")) $('#latest-error').append("Password must contain 1 number<br/>");
+            if (!input.match("(?=.{8,})")) $('#latest-error').append("Password must contain 8 characters<br/>");
+            if (current == "") $('#current-error').append("Current password must contain characters<br/>");
+
+            return false;
+        }
+
+        e.preventDefault();
+        return true;
+    }
+</script>
+
+</body>
+</html>

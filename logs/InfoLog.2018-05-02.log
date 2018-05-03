@@ -1,0 +1,22 @@
+21:39:26.307 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Account with ID 2 password updated from legacy to BCrypt
+21:39:26.352 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+21:46:44.213 [https-jsse-nio-8181-exec-5] INFO  InfoLog- Account with ID 2 successfully authenticated
+21:46:44.224 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+21:47:04.927 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Account with ID 2 successfully authenticated
+21:47:04.938 [https-jsse-nio-8181-exec-8] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+21:47:34.548 [https-jsse-nio-8181-exec-1] INFO  InfoLog- Account with ID 2 successfully authenticated
+21:47:34.556 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+21:49:12.548 [https-jsse-nio-8181-exec-11] INFO  InfoLog- Account with ID 2 successfully authenticated
+21:49:12.586 [https-jsse-nio-8181-exec-4] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+21:50:41.552 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Account with ID 2 successfully authenticated
+21:50:41.570 [https-jsse-nio-8181-exec-4] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+21:51:55.400 [https-jsse-nio-8181-exec-5] INFO  InfoLog- Account with ID 2 successfully authenticated
+21:51:55.409 [https-jsse-nio-8181-exec-11] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+21:52:24.463 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Account with ID 2 successfully authenticated
+21:52:24.490 [https-jsse-nio-8181-exec-7] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+21:54:58.750 [https-jsse-nio-8181-exec-4] INFO  InfoLog- Account with ID 2 successfully authenticated
+21:54:58.759 [https-jsse-nio-8181-exec-1] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+21:55:53.936 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Account with ID 2 successfully authenticated
+21:55:53.950 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+21:56:24.935 [https-jsse-nio-8181-exec-1] INFO  InfoLog- Account with ID 2 successfully authenticated
+21:56:24.944 [https-jsse-nio-8181-exec-7] INFO  InfoLog- Company with account ID 2 visited the their dashboard

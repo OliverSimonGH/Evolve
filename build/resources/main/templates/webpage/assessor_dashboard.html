@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments :: head"></head>
+<body>
+<nav th:replace="fragments :: navigation"></nav>
+
+    <div class="container-fluid nav-spacer">
+        <div class="container">
+            <nav class="navbar navbar-sub">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/assessor-dashboard/assessor-compare">Compare Company QVi's</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+<div class="row col-md-12">
+
+    <div class="offset-1"></div>
+    <div class="col-md-4">
+        <table class="table table-light table-on">
+            <thead>
+            <tr>
+                <th>Questionnaires</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="questionnaire : ${questionnaires}" th:href="@{'/assessor-dashboard/questionnaire/' + ${questionnaire.id}}">
+                <td th:text="${questionnaire.name}"/>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="offset-2"></div>
+    <div class="col-md-4">
+        <table class="table table-light table-on">
+            <thead>
+            <tr>
+                <th>Companies</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="company : ${companies}" th:href="@{'/assessor-dashboard/' + ${company.id}}">
+                <td th:text="${company.name}"/>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments :: head"></head>
+<body>
+<nav th:replace="fragments :: navigation"></nav>
+
+<div class="container-fluid">
+    <div class="container">
+       <div class="row">
+           <div class="create-assessment-holder">
+               <h1>An Assessment is about to take place, taking into all completed questionnaires completed by your chosen emailed
+                   recipients. This QVI score will not be an official approved QVI score and will still need to be checked by your
+                   Evolve Assessor.
+               </h1>
+               <h1>Do you wish to proceed ?</h1>
+           </div>
+           <div class="submit-holder">
+               <button type="submit" class="btn btn-primary" onclick="createAssessment()">Yes Continue</button>
+               <button type="button" class="btn btn-danger" onclick="returnToDashboard()">No, Take me back</button>
+           </div>
+
+
+       </div>
+    </div>
+
+
+</div>
+
+<script>
+    function createAssessment() {
+        window.location.href = "http://localhost:8080/company-dashboard/create-assessment";
+    }
+    function returnToDashboard() {
+        window.location.replace("http://127.0.0.1:8080/company-dashboard");
+    }
+
+
+</script>
+
+</body>
+</html>
+

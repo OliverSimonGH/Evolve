@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+
+        <!--Display pattern for console log-->
+        <encoder>
+            <pattern>%d{hh:mm:ss} %-5level - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE-ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--Daily rollover-->
+            <fileNamePattern>logs/ErrorLog.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+            <!--Keeps 7 days of history-->
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+
+        <!--Display pattern for log-->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36}- %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE-INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--Daily rollover-->
+            <fileNamePattern>logs/InfoLog.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+            <!--Keeps 7 days of history-->
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+
+        <!--Display pattern for log-->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36}- %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE-WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--Daily rollover-->
+            <fileNamePattern>logs/WarnLog.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+            <!--Keeps 7 days of history-->
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+
+        <!--Display pattern for log-->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36}- %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--Console shows error level info-->
+    <root level="info">
+
+        <!--Use appender STDOUT for logger configuration-->
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <!--Configure InfoLog logger-->
+    <logger level="info" name="InfoLog">
+
+        <!--Use appender FILE-INFO for logger configuration-->
+        <appender-ref ref="FILE-INFO" />
+    </logger>
+
+    <!--Configure WarnLog logger-->
+    <logger level="warn" name="WarnLog">
+
+        <!--Use appender FILE-WARN for logger configuration-->
+        <appender-ref ref="FILE-WARN"></appender-ref>
+    </logger>
+
+    <!--Configure ErrorLog logger-->
+    <logger level="error" name="ErrorLog">
+
+        <!--Use appender FILE-ERROR for logger configuration-->
+        <appender-ref ref="FILE-ERROR"></appender-ref>
+    </logger>
+
+</configuration>
