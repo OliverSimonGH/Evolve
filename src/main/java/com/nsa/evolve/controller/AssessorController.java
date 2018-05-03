@@ -120,7 +120,6 @@ public class AssessorController {
         model.addAttribute("AssessorName",assessorName);
         model.addAttribute("IndustryAverage", industryAverage );
         model.addAttribute("AssessorCompanies", assessorCompanies );
-        System.out.println("lalal you will never get this");
 
         return "webpage/assessor-compare";
     }

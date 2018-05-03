@@ -129,7 +129,7 @@ public class CompanyController {
 
     @RequestMapping(value = "/company/get-company-qvi/{id}", method = RequestMethod.GET)
     public  @ResponseBody Long getCompanyQviById(@PathVariable int id, Model model, HttpSession session){
-        System.out.println(id);
+        System.out.println("comparing companies");
         return companyService.getCompanyQvi((long) id);
     }
 

@@ -120,8 +120,8 @@ public class CompanyDAOImpl implements CompanyDAO {
     }
 
     public List<Integer> getModuleReturnData(Long ModId, Long CompanyId) {
-        System.out.println(ModId);
         try {
+            System.out.println("Getting module data");
             List<Integer> ModuleScoreList = new ArrayList<>();
             jdbcTemplate.query("SELECT score FROM result WHERE fk_module = ? AND fk_company = ? order by fk_assessment DESC LIMIT 5",
                     new Object[]{ModId,CompanyId},
