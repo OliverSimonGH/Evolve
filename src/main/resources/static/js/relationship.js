@@ -111,7 +111,7 @@ $(Document).ready(function () {
     function style() {
         //after the last question, this will redirect you to the dashboard
         if (pagenum == json.length - 1){
-            window.location.href = "http://localhost:8080/dashboard";
+            window.location.href = "https://localhost:8181/dashboard";
             // this if else statement changes from submit to finish button
         } else if (pagenum == json.length - 2){
             $('#question-next').html("Finish<i class='fa fa-flag' aria-hidden='true'></i>");

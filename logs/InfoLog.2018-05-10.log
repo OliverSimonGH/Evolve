@@ -1,0 +1,13 @@
+00:57:12.776 [https-jsse-nio-8181-exec-14] INFO  InfoLog- Account with ID 1 password updated from legacy to BCrypt
+00:57:12.818 [https-jsse-nio-8181-exec-4] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+00:57:26.876 [https-jsse-nio-8181-exec-1] INFO  InfoLog- Assessor with account ID 1 visited the questionnaire of ID 1
+00:58:13.468 [https-jsse-nio-8181-exec-8] INFO  InfoLog- Assessor with account ID 1 visited the questionnaire of ID 1
+00:58:21.688 [https-jsse-nio-8181-exec-10] INFO  InfoLog- Assessor with account ID 1 visited the questionnaire of ID 1
+01:20:37.006 [https-jsse-nio-8181-exec-14] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+01:20:51.241 [https-jsse-nio-8181-exec-7] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+01:21:32.655 [https-jsse-nio-8181-exec-9] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+01:21:40.080 [https-jsse-nio-8181-exec-12] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+01:23:14.285 [https-jsse-nio-8181-exec-13] INFO  InfoLog- Assessor with account ID 1 visited the questionnaire of ID 1
+01:24:16.759 [https-jsse-nio-8181-exec-12] INFO  InfoLog- Account with ID 1 successfully authenticated
+01:24:16.795 [https-jsse-nio-8181-exec-5] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+01:24:24.561 [https-jsse-nio-8181-exec-7] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard

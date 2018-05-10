@@ -8,7 +8,7 @@ This will supply your database with the relevant data.
 After you have configured the database, you will have to login to the website with the details provided, there are three different accounts which have access to 
 different dashbaords, in this case, we will only be using the Customer Account
 
-The url to the login page of the website is: http://localhost:8080/login
+The url to the login page of the website is: https://localhost:8181/login
 
 Customer Account <br />
 Email - customer@gmail.com <br />
@@ -24,7 +24,7 @@ Password - 123
 
 <h2>Selecting a Questionnaire</h2>
 
-When you have logged into the website, you will be redirected to the dashboard, here is the link: http://localhost:8080/dashboard
+When you have logged into the website, you will be redirected to the dashboard, here is the link: https://localhost:8181/dashboard
 
 Once on the dashboard, there will be a list of questionnaires to choose from, since you are a customer, you will only need to answer the client questionnaire
 all the other questionnaires will be grayed out for you. You can proceed by clicking on the "Client" questionnaire.
@@ -46,7 +46,7 @@ When you finish a questionnaire, you will be redirected to your dashboard where 
 To get to the settings page, please login with the instructions above. 
 
 Afterwards, if you take a look at the navigation bar at the top of the webpage, to the right there will be a dropdown labelled account, please click on settings.
-or you can go to the URL: http://localhost:8080/settings 
+or you can go to the URL: https://localhost:8181/settings 
 
 <h2>Changing your password</h2>
 To change your password, please following the settings instructions above, when on the settings page there will be two input boxes in the middle of the screen, one in which you have to enter your current password and the other will be your new password.

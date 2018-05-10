@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('.table-on tr').on('click', function () {
         var url = $(this).attr("href");
-        window.location.href = "http://localhost:8080" + url;
+        window.location.href = "https://localhost:8181" + url;
     })
     // test();
 });

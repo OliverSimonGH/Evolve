@@ -171,7 +171,7 @@
             $.post("/company-dashboard/upload-data", scoreForm)
                 .done(function () {
                     console.log("success");
-                    window.location.href = "http://localhost:8080/company-dashboard/download/pdf";
+                    window.location.href = "https://localhost:8181/company-dashboard/download/pdf";
                     $("#fullScreenUpdate").hide();
                 })
                 .fail(function () {
