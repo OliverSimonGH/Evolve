@@ -19,7 +19,9 @@ Open MySQLWorkbench and run the evolve-new-schema-data.sql file
 in there, this will create the schema and provide data for the
 database.
 <br>
-<h2>Account</h2>
+<h2>ACCOUNTS</h2>
+There are the accounts that can be used to authenticate to the website with:
+<br>
 Company Account Details:
 <ul>
 <li>Username: company@gmail.com</li>
