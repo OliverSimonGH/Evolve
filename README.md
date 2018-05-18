@@ -40,4 +40,7 @@ Customer Account Details:
 <li>Password: 123</li>
 </ul>
 
+<h2>Attack</h2>
+The attacks directory contains the files that were used to attack the
+application when it was secured
 

