@@ -10,12 +10,13 @@ Open IntelliJ and import the project from existing sources, go to
 the directory of the cloned project and select the build.gradle file,
 select auto import and create directories for empty content roots
 automatically, now IntelliJ is configured to run the application.
+(Make sure to checkout to the after branch in gitbash with "git checkout -f after")
 Open the gradle tool bar select tasks -> build and there you can
 clean and build the project, the gradle tool bar lets you run the application
 by going to tasks -> application and selecting bootRun.
 <br>
 
-Open MySQLWorkbench and run the evolve-new-schema-data.sql file
+Open MySQLWorkbench and run the evolve-new-schema-data.sql (located in database folder) file
 in there, this will create the schema and provide data for the
 database.
 <br>
@@ -44,3 +45,6 @@ Customer Account Details:
 The attacks directory contains the files that were used to attack the
 application when it was secured
 
+<h2>Application</h2>
+The application can be accessed at the domain localhost, port 8181 and HTTPS protocol,
+https://localhost:8181

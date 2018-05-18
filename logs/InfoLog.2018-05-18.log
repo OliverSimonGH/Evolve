@@ -1,0 +1,6 @@
+03:53:27.840 [https-jsse-nio-8181-exec-12] INFO  InfoLog- Account with ID 3 password updated from legacy to BCrypt
+03:53:27.893 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Customer with account ID 3 visited their dashboard
+03:53:34.775 [https-jsse-nio-8181-exec-6] INFO  InfoLog- Account with ID 1 password updated from legacy to BCrypt
+03:53:34.805 [https-jsse-nio-8181-exec-1] INFO  InfoLog- Assessor with account ID 1 visited the assessor dashboard
+03:53:57.764 [https-jsse-nio-8181-exec-8] INFO  InfoLog- Account with ID 2 password updated from legacy to BCrypt
+03:53:57.775 [https-jsse-nio-8181-exec-5] INFO  InfoLog- Company with account ID 2 visited the their dashboard
