@@ -54,7 +54,7 @@
                     <input name="question" class="form-control" id="question"/>
                     <input name="id" type="hidden" th:value="${id}"/>
                 </div>
-                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                <!--<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
                 <button type="submit" class="btn btn-next btn-fill btn-success btn-wd" id="question-add">Create
                     Question
                 </button>
@@ -97,15 +97,15 @@
 
 </script>
 
-<script type="application/javascript">
-    $(function () {
-        var token = $("meta[name='_csrf']").attr("content");
-        var header = $("meta[name='_csrf_header']").attr("content");
-        $(document).ajaxSend(function (e, xhr, options) {
-            xhr.setRequestHeader(header, token);
-        });
-    });
-</script>
+<!--<script type="application/javascript">-->
+    <!--$(function () {-->
+        <!--var token = $("meta[name='_csrf']").attr("content");-->
+        <!--var header = $("meta[name='_csrf_header']").attr("content");-->
+        <!--$(document).ajaxSend(function (e, xhr, options) {-->
+            <!--xhr.setRequestHeader(header, token);-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
 <script type="application/javascript">
     $(document).ready(function () {
         var $cell = null;

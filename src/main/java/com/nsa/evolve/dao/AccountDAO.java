@@ -18,5 +18,6 @@ public interface AccountDAO {
     Account findAccountByUsername(String email);
     void insertRoles(Integer accountId, Roles roles);
     List<String> getUserRoles(int id);
+    List<String> getUserRoles(String email);
 
 }

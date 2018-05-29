@@ -99,21 +99,21 @@
                 <button type="submit" class="btn btn-next btn-fill btn-success btn-wd" id="report-submit">Create
                     Report
                 </button>
-                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                <!--<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />-->
             </form>
         </div>
     </div>
 </div>
 
-<script type="application/javascript">
-    $(function () {
-        var token = $("meta[name='_csrf']").attr("content");
-        var header = $("meta[name='_csrf_header']").attr("content");
-        $(document).ajaxSend(function (e, xhr, options) {
-            xhr.setRequestHeader(header, token);
-        });
-    });
-</script>
+<!--<script type="application/javascript">-->
+    <!--$(function () {-->
+        <!--var token = $("meta[name='_csrf']").attr("content");-->
+        <!--var header = $("meta[name='_csrf_header']").attr("content");-->
+        <!--$(document).ajaxSend(function (e, xhr, options) {-->
+            <!--xhr.setRequestHeader(header, token);-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
 <script>
     $(document).ready(function () {
         $("li > #create-report").on("click", function () {

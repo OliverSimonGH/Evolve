@@ -1,0 +1,32 @@
+01:36:39.135 [https-jsse-nio-8181-exec-13] INFO  InfoLog- Account with ID 3 successfully authenticated
+01:36:39.181 [https-jsse-nio-8181-exec-14] INFO  InfoLog- Customer with account ID 3 visited their dashboard
+01:36:40.857 [https-jsse-nio-8181-exec-4] INFO  InfoLog- Customer with account ID 3 the questionnaire with ID 75
+04:59:45.908 [https-jsse-nio-8181-exec-6] INFO  InfoLog- Account with ID 3 successfully authenticated
+04:59:45.946 [https-jsse-nio-8181-exec-11] INFO  InfoLog- Customer with account ID 3 visited their dashboard
+04:59:57.982 [https-jsse-nio-8181-exec-6] INFO  InfoLog- Account with ID 2 password updated from legacy to BCrypt
+04:59:58.007 [https-jsse-nio-8181-exec-15] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+05:00:25.293 [https-jsse-nio-8181-exec-8] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+05:00:47.305 [https-jsse-nio-8181-exec-5] INFO  InfoLog- Account with ID 2 successfully authenticated
+05:00:47.312 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+05:00:58.644 [https-jsse-nio-8181-exec-11] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+05:41:08.758 [https-jsse-nio-8181-exec-4] INFO  InfoLog- Company account with ID 2185 has been created
+05:41:22.495 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Account with ID 2 successfully authenticated
+05:41:25.395 [https-jsse-nio-8181-exec-7] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+05:41:27.028 [https-jsse-nio-8181-exec-1] INFO  InfoLog- Company with account ID 2 visited the their dashboard
+05:41:32.800 [https-jsse-nio-8181-exec-4] INFO  InfoLog- Company with account ID 2 visited the add customer page
+05:41:53.078 [https-jsse-nio-8181-exec-6] INFO  InfoLog- People account has failed to be created
+05:41:53.092 [https-jsse-nio-8181-exec-10] INFO  InfoLog- Company with account ID 2 visited the add customer page
+05:41:56.331 [https-jsse-nio-8181-exec-1] INFO  InfoLog- Company with account ID 2 visited the change modules page
+05:41:59.154 [https-jsse-nio-8181-exec-5] INFO  InfoLog- Company with account ID 2 deleted the module with ID 77
+05:41:59.166 [https-jsse-nio-8181-exec-5] INFO  InfoLog- Company with account ID 2 visited the change modules page
+05:42:03.477 [https-jsse-nio-8181-exec-3] INFO  InfoLog- Company with account ID 2 added the module with ID 3
+05:42:03.482 [https-jsse-nio-8181-exec-6] INFO  InfoLog- Company with account ID 2 visited the change modules page
+05:42:08.488 [https-jsse-nio-8181-exec-9] INFO  InfoLog- Company with account ID 2 added an assessment
+05:43:06.546 [https-jsse-nio-8181-exec-2] INFO  InfoLog- Company with account ID 2 download a pdf with their data
+05:43:32.548 [https-jsse-nio-8181-exec-9] INFO  InfoLog- Account ID 2 visited the settings page
+05:44:03.557 [https-jsse-nio-8181-exec-5] INFO  InfoLog- Account with ID successfully changed their password
+05:44:03.620 [https-jsse-nio-8181-exec-9] INFO  InfoLog- Account ID 2 visited the settings page
+05:44:17.549 [https-jsse-nio-8181-exec-9] INFO  InfoLog- Account with ID 3 successfully authenticated
+05:44:17.833 [https-jsse-nio-8181-exec-6] INFO  InfoLog- Customer with account ID 3 visited their dashboard
+05:44:18.903 [https-jsse-nio-8181-exec-8] INFO  InfoLog- Customer with account ID 3 visited their dashboard
+05:44:22.394 [https-jsse-nio-8181-exec-1] INFO  InfoLog- Customer with account ID 3 the questionnaire with ID 75

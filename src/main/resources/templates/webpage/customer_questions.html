@@ -55,7 +55,7 @@
             <label for="comment"><h5>Comments (If you strongly agree or strongly Disagree)</h5></label>
             <textarea class="form-control" name="comment" id="comment" rows="3" disabled="true"></textarea>
         </div>
-        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        <!--<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
         <button type="submit" class="btn btn-info pull-right btn-md" id="question-next">Next<i class="fa fa-arrow-right"
                                                                                                aria-hidden="true"></i>
         </button>
@@ -63,15 +63,15 @@
 </div>
 
 <script th:src="@{/js/question_validation.js}" src="../static/js/question_validation.js"></script>
-<script type="application/javascript">
-    $(function () {
-        var token = $("meta[name='_csrf']").attr("content");
-        var header = $("meta[name='_csrf_header']").attr("content");
-        $(document).ajaxSend(function (e, xhr, options) {
-            xhr.setRequestHeader(header, token);
-        });
-    });
-</script>
+<!--<script type="application/javascript">-->
+    <!--$(function () {-->
+        <!--var token = $("meta[name='_csrf']").attr("content");-->
+        <!--var header = $("meta[name='_csrf_header']").attr("content");-->
+        <!--$(document).ajaxSend(function (e, xhr, options) {-->
+            <!--xhr.setRequestHeader(header, token);-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
 </body>
 </html>
 

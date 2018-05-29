@@ -36,7 +36,7 @@ public class AccountDAOImpl implements AccountDAO {
                         null
                 ));
 
-        List<String> authorities = getUserRoles(account.getId());
+        List<String> authorities = getUserRoles(account.getEmail());
         account.setRoles(authorities);
         return account;
     }
@@ -98,7 +98,7 @@ public class AccountDAOImpl implements AccountDAO {
                             null
                     ));
 
-            List<String> authorities = getUserRoles(account.getId());
+            List<String> authorities = getUserRoles(account.getEmail());
             account.setRoles(authorities);
             return account;
         } catch (EmptyResultDataAccessException e){
@@ -115,5 +115,11 @@ public class AccountDAOImpl implements AccountDAO {
     public List<String> getUserRoles(int id) {
         return jdbcTemplate.queryForList("SELECT r.role FROM account a JOIN account_role ar ON a.id = ar.fk_account JOIN role r ON r.id = ar.fk_role WHERE a.id = ?",
                 new Object[]{id}, String.class);
+    }
+
+    @Override
+    public List<String> getUserRoles(String email) {
+        return jdbcTemplate.queryForList("SELECT r.role FROM account a JOIN account_role ar ON a.id = ar.fk_account JOIN role r ON r.id = ar.fk_role WHERE a.email = ?",
+                new Object[]{email}, String.class);
     }
 }
